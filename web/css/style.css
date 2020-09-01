@@ -20,7 +20,7 @@ and open the template in the editor.
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: auto;background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    height: auto;background-image: linear-gradient(120deg, #462307 0%, #A7633A 100%);
     padding: 20px 60px 20px 30px;
     border-bottom: thin solid black;
 }
@@ -33,7 +33,7 @@ and open the template in the editor.
 }
 
 .logo h1{
-    font-size: 25px;
+    font-size: 40px;
     padding-left: 20px;
 }
 
@@ -43,14 +43,14 @@ and open the template in the editor.
 
 .menu a{
     text-decoration: none;
-    font-size: 18px;
+    font-size: 35px;
     padding-right: 10px;
-    color: black;
+    color: white;
     transition: all 200ms;
 }
 
 .menu a:hover{
-    color: brown;
+    color: #A78875;
 }
 
 .globito{
@@ -67,6 +67,11 @@ and open the template in the editor.
 }
 
 .globito h2{
+    color: white;
+}
+
+.globito h1{
+    font-size: 32px;
     color: white;
 }
 
@@ -92,7 +97,7 @@ and open the template in the editor.
     justify-content: center;
     align-items: center;
     padding: 30px;
-    background: linear-gradient(rgba(0,20,30,0.5)0%, rgba(0,0,0,0.5)100%),url("../img/fondopan.jpg");
+    background: linear-gradient(rgba(0,0,0,0.5)0%, rgba(0,0,0,0.5)100%),url("../img/fondopan.jpg");
 }
 
 .pan img{
@@ -105,6 +110,81 @@ and open the template in the editor.
 .pan img:hover{
     cursor: pointer;
     filter: blur(5px); /*efecto sombra*/
+}
+
+.sec-con{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(rgba(0,0,0,0.5)0%, rgba(0,0,0,0.5)100%),url("../img/fondopan.jpg");
+}
+
+.sec-con h1{
+    color: white;
+    font-size: 60px;
+    align-content: center;
+}
+
+.sec-con h2{
+    color: #ff9999;
+    font-size: 50px;
+    align-items: center;
+    clear: both;
+}
+
+.sec-con p{
+    color: white;
+    font-size: 30px;
+    align-content: stretch;
+    clear: both;
+}
+
+.sec-con img{
+    float: left;
+    width: 380px;
+    padding: 5px;
+    transition: all 300ms ease;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.sec-con img.sec-con-der{
+    float: right;
+    width: 360px;
+    padding: 5px;
+    transition: all 300ms ease;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.sec-nos{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(rgba(0,0,0,0.5)0%, rgba(0,0,0,0.5)100%),url("../img/fondo.jpg");
+}
+
+.sec-nos h1{
+    color: #330000;
+    font-size: 60px;
+    align-content: center;
+}
+
+.sec-nos h2{
+    color: #ff9933;
+    font-size: 50px;
+    align-items: center;
+    clear: both;
+}
+.sec-nos p{
+    color: #ffcccc;
+    font-size: 30px;
+    align-content: stretch;
+    clear: both;
 }
 
 .hide{
@@ -129,7 +209,7 @@ and open the template in the editor.
 .footer{
     width: 100%;
     height: 80px;
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fd 100%);
+    background: #8C4316;
     text-align: center;
 }
 
