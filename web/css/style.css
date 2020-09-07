@@ -20,7 +20,8 @@ and open the template in the editor.
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: auto;background-image: linear-gradient(120deg, #462307 0%, #A7633A 100%);
+    height: auto;
+    background-image: linear-gradient(120deg, #462307 0%, #A7633A 100%);
     padding: 20px 60px 20px 30px;
     border-bottom: thin solid black;
 }
@@ -204,6 +205,17 @@ and open the template in the editor.
 .visible img{
     width: 650px;
     border-radius: 20px;
+}
+
+.log-in{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background: white;
 }
 
 .footer{
