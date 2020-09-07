@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,7 +30,7 @@ public class VerificarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -41,6 +42,26 @@ public class VerificarUsuario extends HttpServlet {
             MUsuario u = new MUsuario();
             
             u = u.verificarUsuario(user, pass);
+            
+            //Se verifica el tipo de usuario
+            
+            if(u != null){
+                //Si el usuario existe dentro de la BD obtenemos su sesion
+                HttpSession sesion = request.getSession(true);
+                sesion.setAttribute("usuario", u);
+                HttpSession sesionUser = request.getSession();
+                sesionUser.setAttribute("usuario", user);
+                //Verificamos el tipo de usuario
+                if(u.getPriv_usu()==0){
+                    //Es un CLIENTE
+                    response.sendRedirect("MostrarPanes.jsp");
+                }else{
+                    response.sendRedirect("Admin.jsp");
+                }
+            }else{
+                //Esta mal escrito o no esta en la BD
+                response.sendRedirect("Errores.jsp");
+            }
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
