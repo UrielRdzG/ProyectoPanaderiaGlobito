@@ -13,14 +13,25 @@ import java.sql.*;
  */
 public class MUsuario {
     
-    private int id_usu;
-    private String nom_usu, appat_usu, apmat_usu, user_usu, pass_usu;
+    private int id_usu, priv_usu;
+    private String nom_usu, appat_usu, user_usu, pass_usu;
     
     public MUsuario(){
         
     }
     
-    //metodos getter and setter
+    //metodo para agregar un nuevo usuario
+    
+    //metodo para eliminar un usuario
+    
+    //metodo para actualizar un usuario
+    
+    //metodo para consultar todos los usuarios
+    
+    //metodo para buscar un usuario por id
+    
+    
+    //metodo para verificar usuario
     
     public MUsuario verificarUsuario(String user, String pass) throws ClassNotFoundException{
         MUsuario u= null;
@@ -29,7 +40,7 @@ public class MUsuario {
         ResultSet rs=null;
         try{
             con=Conexion.getConnection();
-            String q="select * from MUsuario where user_usu = ? adn pass_usu = ?";
+            String q="select * from MUsuario where user_usu = ? and pass_usu = ?";
             ps=con.prepareStatement(q);
             //enviar los parametros user y pass
             ps.setString(1, user);
@@ -44,12 +55,27 @@ public class MUsuario {
                 u.setAppat_usu(rs.getString("appat_usu"));
                 u.setUser_usu(rs.getString("user_usu"));
                 u.setPass_usu(rs.getString("pass_usu"));
-                u.set
+                u.setPriv_usu(rs.getInt("priv_usu"));
+                break;
             }
         }catch(SQLException e){
-            
+            System.out.println("No conecto con la tabla");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            u = null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
+        return u;
     }
+    
+    //metodos get and set
     
     public int getId_usu() {
         return id_usu;
@@ -57,6 +83,14 @@ public class MUsuario {
 
     public void setId_usu(int id_usu) {
         this.id_usu = id_usu;
+    }
+
+    public int getPriv_usu() {
+        return priv_usu;
+    }
+
+    public void setPriv_usu(int priv_usu) {
+        this.priv_usu = priv_usu;
     }
 
     public String getNom_usu() {
@@ -75,14 +109,6 @@ public class MUsuario {
         this.appat_usu = appat_usu;
     }
 
-    public String getApmat_usu() {
-        return apmat_usu;
-    }
-
-    public void setApmat_usu(String apmat_usu) {
-        this.apmat_usu = apmat_usu;
-    }
-
     public String getUser_usu() {
         return user_usu;
     }
@@ -98,6 +124,9 @@ public class MUsuario {
     public void setPass_usu(String pass_usu) {
         this.pass_usu = pass_usu;
     }
+    
+    
+    
     
     
     

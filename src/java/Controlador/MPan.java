@@ -11,6 +11,7 @@ package Controlador;
  */
 import java.util.*;
 import java.sql.*;
+
 public class MPan {
     
     private int id_pan, id_cpan, id_csp, stock_pan;
@@ -21,6 +22,13 @@ public class MPan {
         
     }
     
+    //metodo para agregar panes
+    
+    //metodo para eliminar panes
+    
+    //metodo para actualizar precio o nombre del pan
+    
+
     //metodo que se encargue de obtener toda la lista de panes
     
     public Vector<MPan> listaPanes() throws ClassNotFoundException{
@@ -34,7 +42,7 @@ public class MPan {
             String q="select * from MPan";
             ps=con.prepareStatement(q);
             rs=ps.executeQuery();
-            
+            //buscar todos los panes de la tabla
             while (rs.next()) {                
                 MPan pan=new MPan();
                 pan.setId_pan(rs.getInt("id_pan"));
@@ -48,7 +56,7 @@ public class MPan {
             }
             
         } catch (SQLException e) {
-            System.out.println("No se conecto a la BD");
+            System.out.println("No encontro la tabla pan");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
             lp=null;
@@ -66,7 +74,7 @@ public class MPan {
     
     //metodo para buscar pan por codigo
     
-    public MPan buscarPan(int idpan){
+    public MPan buscarPan(int idpan) throws ClassNotFoundException{
         MPan pan = null;
         Connection con=null;
         PreparedStatement ps=null;
@@ -87,10 +95,10 @@ public class MPan {
                 pan.setId_csp(rs.getInt("id_csp"));
             }
         } catch (SQLException e) {
-            System.out.println("No se conecto a la BD");
+            System.out.println("No encontro la tabla pan");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
-            lp=null;
+            pan=null;
         }finally{
             try {
                 rs.close();
@@ -99,7 +107,45 @@ public class MPan {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
-        }return lp;
+        }
+        return pan;
+    }
+    
+    //metodo para actualizar el strock una vez haya una venta
+    public boolean actualizarStock(Vector<MPan> vpan) throws ClassNotFoundException{
+        boolean actualizo = false;
+        Connection con = null;
+        PreparedStatement ps = null;
+        try {
+            con = Conexion.getConnection();
+            //tenemos que recorrer el vector para actializar el strock por cada pan
+            for(MPan pan : vpan){
+                String q = "Update MPan set stock_pan = ? where id_pan = ?";
+                ps = con.prepareStatement(q);
+                ps.setInt(1, pan.stock_pan);
+                ps.setInt(2, pan.id_pan);
+                //comprobacion del booleano
+                if(ps.executeUpdate()==1){
+                    actualizo = true;
+                }else{
+                    actualizo = false;
+                    break;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla pan");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            actualizo = false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return actualizo;
     }
 
     public int getId_pan() {
