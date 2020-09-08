@@ -22,7 +22,8 @@ public class MUsuario {
     
     //metodo para agregar un nuevo usuario
     
-    public void registrarUsuario(String nombre, String apellido, String usuario, String contrasena) throws ClassNotFoundException{
+    public boolean registrarUsuario(String nombre, String apellido, String usuario, String contrasena) throws ClassNotFoundException{
+        boolean registro=false;
         Connection con=null;
         PreparedStatement ps=null;
         ResultSet set=null;
@@ -35,11 +36,13 @@ public class MUsuario {
             ps.setString(3, usuario);
             ps.setString(4, contrasena);
             ps.executeUpdate();
+            registro=true;
             
         } catch (SQLException e) {
             System.out.println("No conecto con la tabla, o no registro al usuario");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
+            registro=false;
         }finally{
             try {
                 ps.close();
@@ -48,10 +51,39 @@ public class MUsuario {
                 System.out.println(e.getMessage());
             }
         }
-        
+        return registro;
     }
     
     //metodo para eliminar un usuario
+    
+    public boolean eliminarUsuario(int id) throws ClassNotFoundException{
+        boolean elimino=false;
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet st=null;
+        try {
+            con=Conexion.getConnection();
+            String q="delete * from MUsuario where id_usu=?";
+            ps=con.prepareStatement(q);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            elimino=true;
+            
+        } catch (SQLException e) {
+            System.out.println("No conecto con la tabla, o no registro al usuario");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            elimino=false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return elimino;
+    }
     
     //metodo para actualizar un usuario
     
