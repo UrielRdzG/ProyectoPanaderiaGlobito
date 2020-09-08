@@ -57,7 +57,7 @@ public class MUsuario {
     
     //metodo para eliminar un usuario
     
-    public boolean eliminarUsuario(int id) throws ClassNotFoundException{
+    public boolean eliminarUsuario(int idusuario) throws ClassNotFoundException{
         boolean elimino=false;
         Connection con=null;
         PreparedStatement ps=null;
@@ -66,7 +66,7 @@ public class MUsuario {
             con=Conexion.getConnection();
             String q="delete * from MUsuario where id_usu=?";
             ps=con.prepareStatement(q);
-            ps.setInt(1, id);
+            ps.setInt(1, idusuario);
             ps.executeUpdate();
             elimino=true;
             
@@ -88,7 +88,7 @@ public class MUsuario {
     
     //metodo para actualizar un usuario
     
-    public boolean modificarUsuario(String nombre, String apellido, String usuario, String contrasena, int id) throws ClassNotFoundException{
+    public boolean modificarUsuario(String nombre, String apellido, String usuario, String contrasena, int idusuario) throws ClassNotFoundException{
         boolean modifico=false;
         Connection con=null;
         PreparedStatement ps=null;
@@ -100,7 +100,7 @@ public class MUsuario {
             ps.setString(2, apellido);
             ps.setString(3, usuario);
             ps.setString(4, contrasena);
-            ps.setInt(1, id);
+            ps.setInt(1, idusuario);
             if(ps.executeUpdate()==1){
                 modifico = true;
             }else{
@@ -148,7 +148,7 @@ public class MUsuario {
             }
             
         } catch (SQLException e) {
-            System.out.println("No encontro la tabla pan");
+            System.out.println("No encontro la tabla MUsuario, no se puede mostrar la lista");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
             cu=null;
@@ -166,6 +166,41 @@ public class MUsuario {
     
     //metodo para buscar un usuario por id
     
+    public MUsuario buscarUsuario(int idusuario) throws ClassNotFoundException{
+        MUsuario usu = null;
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try {
+            con=Conexion.getConnection();
+            String q="select * from MUsuario where id_usu = ?";
+            ps=con.prepareStatement(q);
+            ps.setInt(1, idusuario);
+            while (rs.next()) {                
+                usu=new MUsuario();
+                usu.setId_usu(rs.getInt("id_usu"));
+                usu.setNom_usu(rs.getString("nom_usu"));
+                usu.setAppat_usu(rs.getString("appat_usu"));
+                usu.setUser_usu(rs.getString("user_usu"));
+                usu.setPass_usu(rs.getString("pass_usu"));
+            }
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MUsuario, no se pudo buscar al usuario solicitado");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            usu=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return usu;
+    }
     
     //metodo para verificar usuario
     
