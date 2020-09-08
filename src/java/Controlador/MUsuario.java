@@ -22,6 +22,35 @@ public class MUsuario {
     
     //metodo para agregar un nuevo usuario
     
+    public void registrarUsuario(String nombre, String apellido, String usuario, String contrasena) throws ClassNotFoundException{
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet set=null;
+        try {
+            con=Conexion.getConnection();
+            String q="insert into MUsuario(nom_usu, appat_usu,user_usu,pass_usu, priv_usu) values(?, ?, ?, ?, 2)";
+            ps=con.prepareStatement(q);
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setString(3, usuario);
+            ps.setString(4, contrasena);
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("No conecto con la tabla, o no registro al usuario");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        
+    }
+    
     //metodo para eliminar un usuario
     
     //metodo para actualizar un usuario
