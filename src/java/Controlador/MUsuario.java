@@ -87,6 +87,40 @@ public class MUsuario {
     
     //metodo para actualizar un usuario
     
+    public boolean modificarUsuario(String nombre, String apellido, String usuario, String contrasena, int id) throws ClassNotFoundException{
+        boolean modifico=false;
+        Connection con=null;
+        PreparedStatement ps=null;
+        try {
+            con=Conexion.getConnection();
+            String q="Update MUsuario set nom_usu=?, appat_usu=?,user_usu=?,pass_usu=? where id_usu=?";
+            ps=con.prepareStatement(q);
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setString(3, usuario);
+            ps.setString(4, contrasena);
+            ps.setInt(1, id);
+            if(ps.executeUpdate()==1){
+                modifico = true;
+            }else{
+                modifico = false;
+            }
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MUsuario o no modifico el usuario");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            modifico = false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return modifico;
+    }
+    
     //metodo para consultar todos los usuarios
     
     //metodo para buscar un usuario por id
