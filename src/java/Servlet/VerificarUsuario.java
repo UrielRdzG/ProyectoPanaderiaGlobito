@@ -8,6 +8,8 @@ package Servlet;
 import Controlador.MUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,33 +37,43 @@ public class VerificarUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
+            //primero tenemos que obtener los parametros del inicio de sesion
+            
             String user, pass;
-            user=request.getParameter("user");
-            pass=request.getParameter("pass");
+            
+            user = request.getParameter("user");
+            pass = request.getParameter("pass");
+            
+            //creo una instancia del usuario
             
             MUsuario u = new MUsuario();
             
             u = u.verificarUsuario(user, pass);
             
-            //Se verifica el tipo de usuario
+            //ahora verificar el tipo de usuario
             
             if(u != null){
-                //Si el usuario existe dentro de la BD obtenemos su sesion
+                //el usuario existe dentro de la bd
+                //obtenemos su sesion
                 HttpSession sesion = request.getSession(true);
+                //enviamos el atributo de la sesion 
                 sesion.setAttribute("usuario", u);
+                
                 HttpSession sesionUser = request.getSession();
                 sesionUser.setAttribute("usuario", user);
-                //Verificamos el tipo de usuario
+                
+                //ahora verificamos el tipo de usuario si es admin o cliente
                 if(u.getPriv_usu()==0){
-                    //Es un CLIENTE
+                    //es un cliente
                     response.sendRedirect("MostrarPanes.jsp");
                 }else{
                     response.sendRedirect("Admin.jsp");
                 }
             }else{
-                //Esta mal escrito o no esta en la BD
+                //esta mal escrito o no existe en la bd
                 response.sendRedirect("Errores.jsp");
             }
+            
             
             
         }
@@ -79,7 +91,7 @@ public class VerificarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**
@@ -93,7 +105,7 @@ public class VerificarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

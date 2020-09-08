@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 3/09/2020, 05:52:06 PM
+    Document   : inicio
+    Created on : 7/09/2020, 08:28:36 PM
     Author     : uriel
 --%>
 
@@ -26,6 +26,7 @@
                 <a href="nosotros.html">Nosotros</a>
                 <a href="productos.html">Productos</a>
                 <a href="contacto.html">Contacto</a>
+                <a href="registro.jsp">Registrarse</a>
             </nav>
         </header>
         <section class="log-in">
@@ -37,7 +38,7 @@
                 <tr>
                     <td>
                         <form method="post" name="formulario" action="VerificarUsuario">
-                            <table>
+                            <table width="620" border="0">
                                 <tr>
                                     <td>Usuario:</td>
                                     <td><input type="text" name="user" id="user"></td>
