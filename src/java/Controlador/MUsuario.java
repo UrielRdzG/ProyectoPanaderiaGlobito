@@ -6,6 +6,7 @@
 package Controlador;
 
 import java.sql.*;
+import java.util.Vector;
 
 /**
  *
@@ -122,6 +123,46 @@ public class MUsuario {
     }
     
     //metodo para consultar todos los usuarios
+    
+    public Vector<MUsuario> consultarUsuarios() throws ClassNotFoundException{
+        Vector<MUsuario> cu=new Vector<MUsuario>();
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try {
+            con=Conexion.getConnection();
+            String q="select * from MUsuario";
+            ps=con.prepareStatement(q);
+            rs=ps.executeQuery();
+            //buscar todos los panes de la tabla
+            while (rs.next()) {                
+                MUsuario usu=new MUsuario();
+                usu.setId_usu(rs.getInt("id_usu"));
+                usu.setNom_usu(rs.getString("nom_usu"));
+                usu.setAppat_usu(rs.getString("appat_usu"));
+                usu.setUser_usu(rs.getString("user_usu"));
+                usu.setPass_usu(rs.getString("pass_usu"));
+                cu.add(usu);
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla pan");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            cu=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }return cu;
+    
+    }
     
     //metodo para buscar un usuario por id
     
