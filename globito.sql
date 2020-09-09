@@ -167,7 +167,7 @@ CREATE TABLE `musuario` (
   `pass_usu` varchar(45) NOT NULL,
   `priv_usu` varchar(45) NOT NULL,
   PRIMARY KEY (`id_usu`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +176,7 @@ CREATE TABLE `musuario` (
 
 LOCK TABLES `musuario` WRITE;
 /*!40000 ALTER TABLE `musuario` DISABLE KEYS */;
+INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0');
 /*!40000 ALTER TABLE `musuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -212,4 +213,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-08 23:50:51
+-- Dump completed on 2020-09-09  0:01:11
