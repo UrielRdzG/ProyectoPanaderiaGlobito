@@ -142,7 +142,7 @@ CREATE TABLE `mpan` (
   KEY `fk_MPan_CSaborPan1_idx` (`id_csp`),
   CONSTRAINT `fk_MPan_CPan` FOREIGN KEY (`id_cpan`) REFERENCES `cpan` (`id_cpan`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `fk_MPan_CSaborPan` FOREIGN KEY (`id_csp`) REFERENCES `csaborpan` (`id_csp`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,6 +151,7 @@ CREATE TABLE `mpan` (
 
 LOCK TABLES `mpan` WRITE;
 /*!40000 ALTER TABLE `mpan` DISABLE KEYS */;
+INSERT INTO `mpan` VALUES (1,'Dona de Chocolate',15,'25',1,1),(2,'Dona de Caramelo',15,'15',1,5),(3,'Dona de Fresa',15,'10',1,3),(4,'Mantecada de Chocolate',13,'20',3,1),(5,'Mantecada de vainilla',14,'20',3,2),(6,'Cuernito',11,'20',4,2),(7,'Oreja',10,'15',5,2),(8,'Concha de Chocolate',13,'25',2,1),(9,'Concha de Vainilla',12,'25',2,2),(10,'Concha de Chocolate con Vainilla',12.5,'20',2,4);
 /*!40000 ALTER TABLE `mpan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-09 11:16:37
+-- Dump completed on 2020-09-09 11:24:06
