@@ -90,19 +90,19 @@ public class MPan {
     
     //metodo para actualizar precio o nombre del pan
     
-    public boolean modificarPan(int idpan, String nompan, double precio, String contrasena, int idusuario) throws ClassNotFoundException{
+    public boolean modificarPan(int idpan, String nompan, double precio, int stock, int idcsp) throws ClassNotFoundException{
         boolean modifico=false;
         Connection con=null;
         PreparedStatement ps=null;
         try {
             con=Conexion.getConnection();
-            String q="Update MUsuario set nom_usu=?, appat_usu=?,user_usu=?,pass_usu=? where id_usu=?";
+            String q="Update MPan nom_pan = ?, pre_pan = ?, stock_pan = ?, id_csp = ? where id_pan=?";
             ps=con.prepareStatement(q);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setString(3, usuario);
-            ps.setString(4, contrasena);
-            ps.setInt(1, idusuario);
+            ps.setString(1, nompan);
+            ps.setDouble(2, precio);
+            ps.setInt(3, stock);
+            ps.setInt(4, idcsp);
+            ps.setInt(5, idpan);
             if(ps.executeUpdate()==1){
                 modifico = true;
             }else{
