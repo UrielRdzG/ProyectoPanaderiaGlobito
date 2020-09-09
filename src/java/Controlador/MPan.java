@@ -24,7 +24,7 @@ public class MPan {
     
     //metodo para agregar panes
     
-    public boolean agregarPan( String nompan, float precio, int stock, int idcpan, int idcsp) throws ClassNotFoundException{
+    public boolean agregarPan( String nompan, double precio, int stock, int idcpan, int idcsp) throws ClassNotFoundException{
         boolean registro=false;
         Connection con=null;
         PreparedStatement ps=null;
@@ -34,7 +34,7 @@ public class MPan {
             String q="insert into MPan(nom_pan, pre_pan,stock_pan,id_cpan, id_csp) values(?, ?, ?, ?, ?)";
             ps=con.prepareStatement(q);
             ps.setString(1, nompan);
-            ps.setFloat(2, precio);
+            ps.setDouble(2, precio);
             ps.setInt(3, stock);
             ps.setInt(4, idcpan);
             ps.setInt(4, idcsp);
@@ -59,8 +59,70 @@ public class MPan {
     
     //metodo para eliminar panes
     
+    public boolean eliminarPan(int idpan) throws ClassNotFoundException{
+        boolean elimino=false;
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet st=null;
+        try {
+            con=Conexion.getConnection();
+            String q="delete * from MPan where id_pan=?";
+            ps=con.prepareStatement(q);
+            ps.setInt(1, idpan);
+            ps.executeUpdate();
+            elimino=true;
+            
+        } catch (SQLException e) {
+            System.out.println("No conecto con la tabla, o no elimino al pan solicitado");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            elimino=false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return elimino;
+    }
+    
     //metodo para actualizar precio o nombre del pan
     
+    public boolean modificarPan(int idpan, String nompan, double precio, String contrasena, int idusuario) throws ClassNotFoundException{
+        boolean modifico=false;
+        Connection con=null;
+        PreparedStatement ps=null;
+        try {
+            con=Conexion.getConnection();
+            String q="Update MUsuario set nom_usu=?, appat_usu=?,user_usu=?,pass_usu=? where id_usu=?";
+            ps=con.prepareStatement(q);
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setString(3, usuario);
+            ps.setString(4, contrasena);
+            ps.setInt(1, idusuario);
+            if(ps.executeUpdate()==1){
+                modifico = true;
+            }else{
+                modifico = false;
+            }
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MUsuario o no modifico el usuario");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            modifico = false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return modifico;
+    }
 
     //metodo que se encargue de obtener toda la lista de panes
     
