@@ -28,7 +28,7 @@ CREATE TABLE `cpan` (
   `id_cpan` int(11) NOT NULL AUTO_INCREMENT,
   `nom_cpan` varchar(45) NOT NULL,
   PRIMARY KEY (`id_cpan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `cpan` (
 
 LOCK TABLES `cpan` WRITE;
 /*!40000 ALTER TABLE `cpan` DISABLE KEYS */;
+INSERT INTO `cpan` VALUES (1,'Dona(s)'),(2,'Concha(s)'),(3,'Mantecada(s)'),(4,'Cuernito(s)'),(5,'Oreja(s)');
 /*!40000 ALTER TABLE `cpan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +52,7 @@ CREATE TABLE `csaborpan` (
   `id_csp` int(11) NOT NULL AUTO_INCREMENT,
   `nom_csp` varchar(45) NOT NULL,
   PRIMARY KEY (`id_csp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,6 +61,7 @@ CREATE TABLE `csaborpan` (
 
 LOCK TABLES `csaborpan` WRITE;
 /*!40000 ALTER TABLE `csaborpan` DISABLE KEYS */;
+INSERT INTO `csaborpan` VALUES (1,'Chocolate'),(2,'Vainilla'),(3,'Fresa'),(4,'Chocolate con vainilla'),(5,'Caramelo');
 /*!40000 ALTER TABLE `csaborpan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +169,7 @@ CREATE TABLE `musuario` (
   `pass_usu` varchar(45) NOT NULL,
   `priv_usu` varchar(45) NOT NULL,
   PRIMARY KEY (`id_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +178,7 @@ CREATE TABLE `musuario` (
 
 LOCK TABLES `musuario` WRITE;
 /*!40000 ALTER TABLE `musuario` DISABLE KEYS */;
-INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0');
+INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0'),(3,'Adrian','Carselle','AdriiCC','odisea123','0');
 /*!40000 ALTER TABLE `musuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-09  0:01:11
+-- Dump completed on 2020-09-09 11:16:37
