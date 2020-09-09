@@ -33,7 +33,7 @@
             <br><br><br><br><br>
             <table width="800" border="0" align="center">
                 <tr>
-                    <td colspan="2"><h2>Inicio de Sesio</h2></td>
+                    <td colspan="2"><h2>Inicio de Sesion</h2></td>
                 </tr>
                 <tr>
                     <td>

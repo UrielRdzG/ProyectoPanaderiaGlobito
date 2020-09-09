@@ -30,7 +30,7 @@ public class MUsuario {
         ResultSet set=null;
         try {
             con=Conexion.getConnection();
-            String q="insert into MUsuario(nom_usu, appat_usu,user_usu,pass_usu, priv_usu) values(?, ?, ?, ?, 2)";
+            String q="insert into MUsuario(nom_usu, appat_usu,user_usu,pass_usu, priv_usu) values(?, ?, ?, ?, 0)";
             ps=con.prepareStatement(q);
             ps.setString(1, nombre);
             ps.setString(2, apellido);
@@ -205,10 +205,10 @@ public class MUsuario {
     //metodo para verificar usuario
     
     public MUsuario verificarUsuario(String user, String pass) throws ClassNotFoundException{
-        MUsuario u= null;
-        Connection con=null;
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+        MUsuario u = null;
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try{
             con=Conexion.getConnection();
             String q="select * from MUsuario where user_usu = ? and pass_usu = ?";

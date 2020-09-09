@@ -29,9 +29,41 @@
             </nav>
         </header>
         <section class="log-in">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1 align="center">En construccion</h1>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br>
+            <table width="800" border="0" align="center">
+                <tr>
+                    <td colspan="2"><h2>Registro</h2></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="post" name="formulario" action="RegistrarUsuario">
+                            <table width="620" border="0">
+                                <tr>
+                                    <td>Nombre:</td>
+                                    <td><input type="text" name="nombre" id="nombre"></td>
+                                </tr>
+                                <tr>
+                                    <td>Apellido:</td>
+                                    <td><input type="text" name="apellido" id="apellido"></td>
+                                </tr>
+                                <tr>
+                                    <td>Usuario:</td>
+                                    <td><input type="text" name="user" id="user"></td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td><input type="password" name="pass" id="pass"></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="Inicio.jsp">Ya tengo una cuenta</a></td>
+                                    <td><input type="submit" value="Entrar" name="inicio"></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
         </section>
         <section class="hide">
             

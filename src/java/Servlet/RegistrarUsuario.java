@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author uriel
  */
-public class VerificarUsuario extends HttpServlet {
+public class RegistrarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,8 +32,7 @@ public class VerificarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-        
+            throws ServletException, IOException {
         
     }
 
@@ -49,7 +48,7 @@ public class VerificarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     /**
@@ -63,55 +62,42 @@ public class VerificarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
             //primero tenemos que obtener los parametros del inicio de sesion
             
-            String user, pass;
+            String user, pass, nombre, apellido;
             
+            nombre=request.getParameter("nombre");
+            apellido=request.getParameter("apellido");
             user = request.getParameter("user");
             pass = request.getParameter("pass");
             
-            System.out.println("Es: "+user+" y "+pass);
-            
             //creo una instancia del usuario
-            
+            boolean registro=false;
             MUsuario u = new MUsuario();
             
-            u = u.verificarUsuario(user, pass);
+            registro = u.registrarUsuario(nombre, apellido, user, pass);
             
             //ahora verificar el tipo de usuario
             
-            if(u != null){
-                //el usuario existe dentro de la bd
-                //obtenemos su sesion
-                HttpSession sesion = request.getSession(true);
-                //enviamos el atributo de la sesion 
-                sesion.setAttribute("usuario", u);
+            if(registro==true){
+                //si registro al usuario
+                System.out.println("Se registro al usuario");
+                response.sendRedirect("inicio.jsp");
                 
-                HttpSession sesionUser = request.getSession();
-                sesionUser.setAttribute("usuario", user);
-                
-                //ahora verificamos el tipo de usuario si es admin o cliente
-                if(u.getPriv_usu()==0){
-                    //es un cliente
-                    response.sendRedirect("mostrarPanes.jsp");
-                }else{
-                    response.sendRedirect("admin.jsp");
-                }
             }else{
-                //esta mal escrito o no existe en la bd
-                response.sendRedirect("Errores.jsp");
+                //si no registro al usuario
+                System.out.println("No registro al usuario");
+                response.sendRedirect("index.html");
             }
             
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VerificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     /**
