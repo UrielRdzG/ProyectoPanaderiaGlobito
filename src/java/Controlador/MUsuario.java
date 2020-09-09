@@ -71,7 +71,7 @@ public class MUsuario {
             elimino=true;
             
         } catch (SQLException e) {
-            System.out.println("No conecto con la tabla, o no registro al usuario");
+            System.out.println("No conecto con la tabla, o no elimino al usuario");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
             elimino=false;
