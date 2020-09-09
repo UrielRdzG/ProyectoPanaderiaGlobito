@@ -24,6 +24,39 @@ public class MPan {
     
     //metodo para agregar panes
     
+    public boolean agregarPan( String nompan, float precio, int stock, int idcpan, int idcsp) throws ClassNotFoundException{
+        boolean registro=false;
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet set=null;
+        try {
+            con=Conexion.getConnection();
+            String q="insert into MPan(nom_pan, pre_pan,stock_pan,id_cpan, id_csp) values(?, ?, ?, ?, ?)";
+            ps=con.prepareStatement(q);
+            ps.setString(1, nompan);
+            ps.setFloat(2, precio);
+            ps.setInt(3, stock);
+            ps.setInt(4, idcpan);
+            ps.setInt(4, idcsp);
+            ps.executeUpdate();
+            registro=true;
+            
+        } catch (SQLException e) {
+            System.out.println("No conecto con la tabla, o no registro el pan");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            registro=false;
+        }finally{
+            try {
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return registro;
+    }
+    
     //metodo para eliminar panes
     
     //metodo para actualizar precio o nombre del pan
@@ -112,6 +145,7 @@ public class MPan {
     }
     
     //metodo para actualizar el strock una vez haya una venta
+    
     public boolean actualizarStock(Vector<MPan> vpan) throws ClassNotFoundException{
         boolean actualizo = false;
         Connection con = null;
