@@ -1,10 +1,26 @@
 <%-- 
     Document   : mostrarPanes
-    Created on : 9/09/2020, 07:04:05 AM
+    Created on : 10/09/2020, 06:07:00 PM
     Author     : uriel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, Controlador.*" session="true"%>
+
+<%
+    String usuario="";
+    //sesion del usuario
+    HttpSession sesionuser=request.getSession();
+    //verificar usuario
+    if(sesionuser.getAttribute("usuario")==null){
+%>
+<jsp:forward page="inicio.jsp">
+    <jsp:param name="error" value="Es obligatorio autentificarse con sesion valida"></jsp:param>
+</jsp:forward>
+<%
+    }else{
+        usuario=(String)sesionuser.getAttribute("usuario");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,30 +40,42 @@
             <nav class="menu">
                 <a href="index.html">Principal</a>
                 <a href="nosotros.html">Nosotros</a>
-                <a href="mostrarPanes.jsp">Productos</a>
+                <a href="productos.html">Productos</a>
                 <a href="contacto.html">Contacto</a>
-                <a href="miCuenta.html">miCuenta</a>
-                <a href="#">Cerrar sesion</a>
+                <a href="miCuenta.jsp">perfil</a>
             </nav>
         </header>
         <section class="globito">
-            <h2>La panaderia el globito, hace pan artesanal desde 1842, y ahora esta en la nube, compre su panecito aqui (*w*)</h2>
+            <h2>Pan artesanal, escoga el que mas le guste uwu</h2>
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
         <section class="pan">
-            <img class="img" src="./img/pan01.jpg" alt="photo1">
-            <img class="img" src="./img/pan02.jpg" alt="photo2">
-            <img class="img" src="./img/pan03.jpg" alt="photo3">
-            <img class="img" src="./img/pan04.jpg" alt="photo4">
-            <img class="img" src="./img/pan05.jpg" alt="photo5">
-            <img class="img" src="./img/pan06.jpg" alt="photo6">
-            <img class="img" src="./img/pan07.jpg" alt="photo7">
-            <img class="img" src="./img/pan08.jpg" alt="photo8">
-            <img class="img" src="./img/pan09.jpg" alt="photo9">
+            
+            <%//Obtener la lista de los productos, panes
+                Vector<MPan> vecpan=new MPan().listaPanes();
+                //recorrer toda la lista de panes
+                //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
+                for(MPan pan : vecpan){
+            %>
+            <p class="img">
+            <table>
+                <tr>
+                    <td><%=pan.getNom_pan( )%></td>
+                    <td><%=pan.getStock_pan()%></td>
+                    <td><%=pan.getPre_pan() %></td>
+                </tr>
+            </table>
+            </p>
+            <%}%>
         </section>
         <section class="hide">
             
+        </section>
+        <section class="menu">
+            <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
+            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
+            <a href="CerrarSesion">Cerrar Sesion</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
