@@ -70,10 +70,15 @@
             <table>
                 <tr>
                     <td><%=pan.getNom_pan( )%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                    <td><a href="<%=direccion%>">Comprar</a></td>
+                    <td><%=dventa.getCant_dventa()%></td>
+                    <td><%=dventa.getSubtotal_venta()%></td>
+                    
                 </tr>
+            <%}%>
+            <tr>
+                <td></td>
+                <td><a href="FinalizarCompra"></a></td>
+            </tr>
             </table>
             </p>
             <%}%>

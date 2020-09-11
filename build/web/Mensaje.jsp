@@ -1,6 +1,6 @@
 <%-- 
-    Document   : MostrarCarritoPanes
-    Created on : 10/09/2020, 07:22:48 PM
+    Document   : Mensaje
+    Created on : 10/09/2020, 08:02:48 PM
     Author     : uriel
 --%>
 
@@ -51,39 +51,8 @@
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
         <section class="pan">
-            
-            <table width="100%" border="0">
-                <tr>
-                    <th>Nombre del Pan</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                </tr>
-            
-            
-            <%
-                Vector<DVenta> detalleVentas = (Vector<DVenta>)sesionuser.getAttribute("detalleVenta");
-                Vector<MPan> stockPanes = null;
-                for(DVenta dventa:detalleVentas){
-                    MPan pan = new MPan().buscarPan(dventa.getId_pan());
-            %>
-            <p class="img">
-            <table>
-                <tr>
-                    <td><%=pan.getNom_pan( )%></td>
-                    <td><%=dventa.getCant_dventa()%></td>
-                    <td><%=dventa.getSubtotal_venta()%></td>
-                    
-                </tr>
-            <%}%>
-            <tr>
-                <td></td>
-                <td><a href="FinalizarCompra"></a></td>
-            </tr>
-            </table>
-            </p>
-            <%}%>
+            <h4>Gracias por su compra ♥</h4>
         </section>
-        </table>
         <section class="hide">
             
         </section>
