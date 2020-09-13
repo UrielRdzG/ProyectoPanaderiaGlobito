@@ -61,9 +61,10 @@ public class MUsuario {
         Connection con=null;
         PreparedStatement ps=null;
         ResultSet st=null;
+        System.out.println(idusuario);
         try {
             con=Conexion.getConnection();
-            String q="delete * from MUsuario where id_usu=?";
+            String q="delete from MUsuario where id_usu=?";
             ps=con.prepareStatement(q);
             ps.setInt(1, idusuario);
             ps.executeUpdate();
@@ -163,7 +164,7 @@ public class MUsuario {
     
     //metodo para buscar un usuario por id
     
-    public MUsuario buscarUsuario(String usuario) throws ClassNotFoundException{
+    public MUsuario buscarUsuario(int id) throws ClassNotFoundException{
         MUsuario usu = null;
         Connection con=null;
         PreparedStatement ps=null;
@@ -171,9 +172,9 @@ public class MUsuario {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MUsuario where user_usu = ?";
+            String q="select * from MUsuario where id_usu = ?";
             ps=con.prepareStatement(q);
-            ps.setString(1, usuario);
+            ps.setInt(1, id);
             rs=ps.executeQuery();
             while (rs.next()) {                
                 usu=new MUsuario();

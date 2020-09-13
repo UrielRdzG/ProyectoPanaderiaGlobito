@@ -58,19 +58,17 @@
                 //recorrer toda la lista de panes
                 //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
                 for(MUsuario usu : vecusu){
-                    
+                    String direccion="eliminarU.jsp?ideli="+usu.getId_usu();
                 
             %>
-            <form name="" method="post" action="eliminarUsuario">
                 <tr>
                     <td><%=usu.getId_usu()%></td>
                     <td><%=usu.getNom_usu()%></td>
                     <td><%=usu.getAppat_usu()%></td>
                     <td><%=usu.getUser_usu()%></td>
                     <td><%=usu.getPass_usu()%></td>
-                    <td><input type="submit" value="Eliminar"></td>
+                    <td><a><a href="<%=direccion%>">Eliminar</a></a></td>
                 </tr>
-            </form>
             <%}%>
         </section>
         

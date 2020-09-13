@@ -110,8 +110,8 @@ CREATE TABLE `eusuario` (
   `id_usu` int(11) NOT NULL,
   PRIMARY KEY (`id_eusu`),
   KEY `fk_EUsuario_MUsuario1_idx` (`id_usu`),
-  CONSTRAINT `fk_EUsuario_MUsuario1` FOREIGN KEY (`id_usu`) REFERENCES `musuario` (`id_usu`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_EUsuario_MUsuario1` FOREIGN KEY (`id_usu`) REFERENCES `musuario` (`id_usu`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,6 +120,7 @@ CREATE TABLE `eusuario` (
 
 LOCK TABLES `eusuario` WRITE;
 /*!40000 ALTER TABLE `eusuario` DISABLE KEYS */;
+INSERT INTO `eusuario` VALUES (1,1),(2,2),(3,3),(4,6);
 /*!40000 ALTER TABLE `eusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +171,7 @@ CREATE TABLE `musuario` (
   `pass_usu` varchar(45) NOT NULL,
   `priv_usu` varchar(45) NOT NULL,
   PRIMARY KEY (`id_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +180,7 @@ CREATE TABLE `musuario` (
 
 LOCK TABLES `musuario` WRITE;
 /*!40000 ALTER TABLE `musuario` DISABLE KEYS */;
-INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0'),(3,'Adrian','Carselle','AdriiCC','odisea123','0');
+INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0'),(3,'Adrian','Carselle','AdriiCC','odisea123','0'),(6,'Carlos','Gomez','Charly','contrasena','0');
 /*!40000 ALTER TABLE `musuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,4 +217,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-09 11:24:06
+-- Dump completed on 2020-09-13 14:24:49
