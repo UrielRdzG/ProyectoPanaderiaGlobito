@@ -166,7 +166,7 @@ public class MUsuario {
     
     //metodo para buscar un usuario por id
     
-    public MUsuario buscarUsuario(int idusuario) throws ClassNotFoundException{
+    public MUsuario buscarUsuario(String usuario) throws ClassNotFoundException{
         MUsuario usu = null;
         Connection con=null;
         PreparedStatement ps=null;
@@ -174,9 +174,10 @@ public class MUsuario {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MUsuario where id_usu = ?";
+            String q="select * from MUsuario where user_usu = ?";
             ps=con.prepareStatement(q);
-            ps.setInt(1, idusuario);
+            ps.setString(1, usuario);
+            rs=ps.executeQuery();
             while (rs.next()) {                
                 usu=new MUsuario();
                 usu.setId_usu(rs.getInt("id_usu"));

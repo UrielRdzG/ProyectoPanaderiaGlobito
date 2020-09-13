@@ -5,9 +5,14 @@
  */
 package Servlet;
 
+import Controlador.Conexion;
 import Controlador.MUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -85,6 +90,38 @@ public class RegistrarUsuario extends HttpServlet {
             if(registro==true){
                 //si registro al usuario
                 System.out.println("Se registro al usuario");
+                Connection con=null;
+                PreparedStatement ps=null;
+                ResultSet rs=null;
+                try {
+                    con=Conexion.getConnection();
+                    String q="select * from MUsuario where user_usu = ?";
+                    ps=con.prepareStatement(q);
+                    ps.setString(1, user);
+                    rs=ps.executeQuery();
+                    while (rs.next()) {                
+                        int idusuario;
+                        idusuario = rs.getInt("id_usu");
+                        System.out.println("la id es:"+idusuario);
+                        String w="insert into EUsuario(id_usu) values(?)";
+                        ps=con.prepareStatement(w);
+                        ps.setInt(1, idusuario);
+                        ps.executeUpdate();
+                        System.out.println("Si registro en eusu");
+                    }
+                } catch (SQLException e) {
+                    System.out.println("Algo mal");
+                    System.out.println(e.getMessage());
+                    System.out.println(e.getStackTrace());
+                }finally{
+                    try {
+                        rs.close();
+                        ps.close();
+                        con.close();
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
                 response.sendRedirect("inicio.jsp");
                 
             }else{

@@ -61,7 +61,7 @@
                 <form name="agregarpan" method="post" action="AgregarPanCarrito">
                     <table width="100%" border="0">
                         <tr>
-                            <td>Codido</td>
+                            <td>Codigo</td>
                             <td><input type="text" name="id" id="id" readonly="readonly" value="<%=pan.getId_pan()%>"></td>
                         </tr>
                         <tr>
