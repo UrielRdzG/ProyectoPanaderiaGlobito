@@ -45,7 +45,7 @@
         </header>
         <section class="log-in">
             <br><br><br>
-            <form>
+            <form method="post" action="agregarPan">
                 Nombre del pan: <input type="text" name="nombre">
                 <br><br>
                 Precio: <input type="" name="precio">

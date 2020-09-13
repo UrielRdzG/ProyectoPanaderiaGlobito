@@ -37,7 +37,7 @@ public class MPan {
             ps.setDouble(2, precio);
             ps.setInt(3, stock);
             ps.setInt(4, idcpan);
-            ps.setInt(4, idcsp);
+            ps.setInt(5, idcsp);
             ps.executeUpdate();
             registro=true;
             
