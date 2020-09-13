@@ -37,13 +37,13 @@
             </div>
             <nav class="menu">
                 <a href="index.html">Principal</a>
-                <a href="usuariosA.html">Usuarios</a>
+                <a href="usuariosA.jsp">Usuarios</a>
                 <a href="productos.html">Panes</a>
                 <a href="contacto.html">Ventas</a>
-                <a href="CerrarSesiom.jsp">Cerrar Sesion</a>
+                <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
-        <section class="sec-con">
+        <section class="log-in">
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <h1 align="center">Bienvenido Administrador</h1>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

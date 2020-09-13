@@ -214,6 +214,8 @@ and open the template in the editor.
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
+    align-content: center;
+    align-self: center;
     padding: 30px;
     background: white;
 }
