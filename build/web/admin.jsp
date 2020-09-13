@@ -38,8 +38,8 @@
             <nav class="menu">
                 <a href="index.html">Principal</a>
                 <a href="usuariosA.jsp">Usuarios</a>
-                <a href="productos.html">Panes</a>
-                <a href="contacto.html">Ventas</a>
+                <a href="panesA.jsp">Panes</a>
+                <a href="ventas.jasp">Ventas</a>
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>

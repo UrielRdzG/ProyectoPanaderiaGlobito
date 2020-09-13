@@ -74,8 +74,6 @@ public class VerificarUsuario extends HttpServlet {
             user = request.getParameter("user");
             pass = request.getParameter("pass");
             
-            System.out.println("Es: "+user+" y "+pass);
-            
             //creo una instancia del usuario
             
             MUsuario u = new MUsuario();
@@ -93,6 +91,8 @@ public class VerificarUsuario extends HttpServlet {
                 
                 HttpSession sesionUser = request.getSession();
                 sesionUser.setAttribute("usuario", user);
+                sesionUser.setAttribute("idusuario", u.getId_usu());
+                
                 
                 //ahora verificamos el tipo de usuario si es admin o cliente
                 if(u.getPriv_usu()==0){

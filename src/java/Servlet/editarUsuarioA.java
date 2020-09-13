@@ -47,7 +47,7 @@ public class editarUsuarioA extends HttpServlet {
             boolean edito;
             MUsuario u = new MUsuario();
             
-            edito = u.modificarUsuario(nombre, apellido, user, nombre, idusu);
+            edito = u.modificarUsuario(nombre, apellido, user, pass, idusu);
             
             if(edito==true){
                 System.out.println("modificacion exitosa");

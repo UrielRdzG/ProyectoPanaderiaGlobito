@@ -1,6 +1,6 @@
 <%-- 
-    Document   : usuariosA
-    Created on : 13/09/2020, 01:14:08 PM
+    Document   : panesA
+    Created on : 13/09/2020, 05:17:45 PM
     Author     : uriel
 --%>
 
@@ -44,36 +44,44 @@
             </nav>
         </header>
         <section class="log-in">
-            <table width="100%" border="0" align="center">
+            <table width="100%" border="0">
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre(s)</th>
-                    <th>Apellido</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                    <th colspan="2">Acciones</th>
+                    <th>Nombre del Pan</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th colspan="2">Proceso</th>
                 </tr>
-            <%//Obtener la lista de usuarios
-                Vector<MUsuario> vecusu=new MUsuario().consultarUsuarios();
+            
+            
+            <%//Obtener la lista de los productos, panes
+                Vector<MPan> vecpan=new MPan().listaPanes();
                 //recorrer toda la lista de panes
                 //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
-                for(MUsuario usu : vecusu){
-                    String direccion="eliminarU.jsp?ideli="+usu.getId_usu();
-                    String direccion2="editarU.jsp?ideli="+usu.getId_usu();
+                for(MPan pan : vecpan){
                 
+                //l usuario selecciona que pan desea
+                String direccion="editarPan.jsp?idpan="+pan.getId_pan();
+                String direccion2="eliminarPan.jsp?idpan="+pan.getId_pan();
             %>
+            
+            <form method="post" accion="eliminarPan?idpan=<%=pan.getId_pan()%>">
                 <tr>
-                    <td><%=usu.getId_usu()%></td>
-                    <td><%=usu.getNom_usu()%></td>
-                    <td><%=usu.getAppat_usu()%></td>
-                    <td><%=usu.getUser_usu()%></td>
-                    <td><%=usu.getPass_usu()%></td>
-                    <td><a><a href="<%=direccion2%>">Editar</a></a></td>
-                    <td><a><a href="<%=direccion%>">Eliminar</a></a></td>
+                    <td><%=pan.getNom_pan( )%></td>
+                    <td><%=pan.getStock_pan()%></td>
+                    <td>$<%=pan.getPre_pan() %></td>
+                    <td><input type="button" value="No" onclick="window.location='editarPan.jsp?idpan=<%=pan.getId_pan()%>';"></td>
+                    <td><input type="submit" value="Si"></td>
                 </tr>
+            </form>
+            
             <%}%>
+            <tr>
+                <td colspan="5" align="center"><button class="bttn-APan"onclick="window.location='agregarPan.jsp';">Agregar nuevo pan ♥</button></td>
+            </tr>
+            </table>
+            <br><br>
+            
         </section>
-        
     </body>
 </html>
 <%}%>

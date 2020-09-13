@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, Controlador.*" session="true"%>
 
 <%
-    String usuario="";
+    String usuario,idusuario="";
     //sesion del usuario
     HttpSession sesionuser=request.getSession();
     //verificar usuario
@@ -40,9 +40,10 @@
             <nav class="menu">
                 <a href="index.html">Principal</a>
                 <a href="nosotros.html">Nosotros</a>
-                <a href="productos.html">Productos</a>
+                <a href="mostrarPanes.jsp">Productos</a>
                 <a href="contacto.html">Contacto</a>
                 <a href="miCuenta.jsp">perfil</a>
+                <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
         <section class="globito">

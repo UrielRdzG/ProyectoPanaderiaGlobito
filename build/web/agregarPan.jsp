@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin
-    Created on : 9/09/2020, 07:03:12 AM
+    Document   : agregarPan
+    Created on : 13/09/2020, 05:53:36 PM
     Author     : uriel
 --%>
 
@@ -44,9 +44,33 @@
             </nav>
         </header>
         <section class="log-in">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1 align="center">Bienvenido Administrador</h1>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br>
+            <form>
+                Nombre del pan: <input type="text" name="nombre">
+                <br><br>
+                Precio: <input type="" name="precio">
+                <br><br>
+                Stock: <input type="text" name="stock">
+                <br><br>
+                Tipo de pan:<select name="tipo" required>
+                                <option value="1" selected>Dona</option>
+                                <option value="2">Concha</option>
+                                <option value="3">Mantecada</option>
+                                <option value="4">Cuernito</option>
+                                <option value="5">Oreja</option>
+                            </select>
+                <br><br>
+                Sabor del pan:<select name="sabor" required>
+                                <option value="1" selected>Chocolate</option>
+                                <option value="2">Vainalla</option>
+                                <option value="3">Fresa</option>
+                                <option value="4">Chocolate con vainilla</option>
+                                <option value="5">Caramelo</option>
+                            </select>
+                <br><br>
+                <input type="submit" value="Registrar Panecito">
+            </form>
+            <br><br><br>
         </section>
         <section class="hide">
             

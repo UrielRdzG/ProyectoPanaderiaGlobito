@@ -8,6 +8,7 @@
 
 <%
     String usuario="";
+    Integer idusuario;
     //sesion del usuario
     HttpSession sesionuser=request.getSession();
     //verificar usuario
@@ -19,7 +20,9 @@
 <%
     }else{
         usuario=(String)sesionuser.getAttribute("usuario");
-    }
+        idusuario=(Integer)session.getAttribute("idusuario");
+        System.out.println(idusuario);
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -40,9 +43,10 @@
             <nav class="menu">
                 <a href="index.html">Principal</a>
                 <a href="nosotros.html">Nosotros</a>
-                <a href="productos.html">Productos</a>
+                <a href="mostrarPanes.jsp">Productos</a>
                 <a href="contacto.html">Contacto</a>
                 <a href="miCuenta.jsp">perfil</a>
+                <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
         <section class="globito">
@@ -53,7 +57,7 @@
         <section class="pan">
             
             <%//Crear la instancia, para poder buscar la pieza que se queire comprar
-                MUsuario usu = new MUsuario().buscarUsuario(usuario);
+                MUsuario usu = new MUsuario().buscarUsuario(idusuario);
                 String direccion="editarCuenta.jsp?idusu="+usu.getId_usu();
                 
             %>
@@ -96,3 +100,4 @@
         <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>
