@@ -1,6 +1,6 @@
 <%-- 
-    Document   : mostrarPanes
-    Created on : 10/09/2020, 06:07:00 PM
+    Document   : editarCuenta
+    Created on : 12/09/2020, 11:05:10 PM
     Author     : uriel
 --%>
 
@@ -52,22 +52,41 @@
         <h2 class="titulo-p">Pan artesanal</h2>
         <section class="pan">
             
-            <%//Obtener la lista de los productos, panes
-                Vector<MPan> vecpan=new MPan().listaPanes();
-                //recorrer toda la lista de panes
-                //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
-                for(MPan pan : vecpan){
+            <%//Crear la instancia, para poder buscar la pieza que se queire comprar
+                MUsuario usu = new MUsuario().buscarUsuario(usuario);
+                
+                
             %>
-            <p class="img">
-            <table>
-                <tr>
-                    <td><%=pan.getNom_pan()%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                </tr>
+            <table width="100%" border="0">
+                <form name="editar" method="post" action="editarUsuario">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td>ID:</td>
+                            <td><input type="text" name="idusu" id="idusu" readonly="readonly" value="<%=usu.getId_usu()%>"></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td><input type="text" name="nombre" id="nombre" value="<%=usu.getNom_usu()%>"></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido:</td>
+                            <td><input type="text" name="apellido" id="apellito" value="<%=usu.getAppat_usu()%>"></td>
+                        </tr>
+                        <tr>
+                            <td>Usuario:</td>
+                            <td><input type="text" name="user" id="user" value="<%=usu.getUser_usu()%>"></td>
+                        </tr>
+                        <tr>
+                            <td>Contraseña:</td>
+                            <td><input type="text" name="pass" id="pass" value="<%=usu.getPass_usu()%>"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" name="subir" value="Editar"></a></td>
+                        </tr>
+                    </table>
+                </form>
             </table>
-            </p>
-            <%}%>
         </section>
         <section class="hide">
             

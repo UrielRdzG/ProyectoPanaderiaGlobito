@@ -61,7 +61,7 @@
             <p class="img">
             <table>
                 <tr>
-                    <td><%=pan.getNom_pan( )%></td>
+                    <td><%=pan.getNom_pan()%></td>
                     <td><%=pan.getStock_pan()%></td>
                     <td><%=pan.getPre_pan() %></td>
                 </tr>

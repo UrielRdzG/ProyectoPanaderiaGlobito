@@ -11,6 +11,8 @@
     
     HttpSession sesionuser = request.getSession();
     sesionuser.invalidate();
+    
+    response.sendRedirect("inicio.jsp");
 %>
 <!DOCTYPE html>
 <html>

@@ -20,6 +20,10 @@
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>Servlet.CerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editarUsuario</servlet-name>
+        <servlet-class>Servlet.editarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editarUsuario</servlet-name>
+        <url-pattern>/editarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

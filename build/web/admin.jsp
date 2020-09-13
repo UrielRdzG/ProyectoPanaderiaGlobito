@@ -4,14 +4,57 @@
     Author     : uriel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, Controlador.*" session="true"%>
+<%
+    String usuario="";
+    //sesion del usuario
+    HttpSession sesionuser=request.getSession();
+    //verificar usuario
+    if(sesionuser.getAttribute("usuario")==null){
+%>
+<jsp:forward page="inicio.jsp">
+    <jsp:param name="error" value="Es obligatorio autentificarse con sesion valida"></jsp:param>
+</jsp:forward>
+<%
+    }else{
+        usuario=(String)sesionuser.getAttribute("usuario");    
+%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Panaderia Globito</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/style.css"/>
+        <link rel="shortcut" href="./img/logo.png" type="image/x/icon"/>
     </head>
     <body>
-        <h1>Pagina administrador</h1>
+        <header class="header">
+            <div class="logo">
+                <h1>Panaderia el Globito</h1>
+                <img src="./img/logo.png" alt="logo">
+            </div>
+            <nav class="menu">
+                <a href="index.html">Principal</a>
+                <a href="usuariosA.html">Usuarios</a>
+                <a href="productos.html">Panes</a>
+                <a href="contacto.html">Ventas</a>
+                <a href="CerrarSesiom.jsp">Cerrar Sesion</a>
+            </nav>
+        </header>
+        <section class="sec-con">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1 align="center">Bienvenido Administrador</h1>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </section>
+        <section class="hide">
+            
+        </section>
+        <footer class="footer">
+            <p>Desarrollado por mi :D</p>
+        </footer>
+        <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>

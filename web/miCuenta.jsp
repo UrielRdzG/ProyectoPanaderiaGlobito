@@ -60,28 +60,24 @@
             <table width="100%" border="0">
                     <table width="100%" border="0">
                         <tr>
-                            <td>Codido</td>
-                            <td><input type="text" name="id" id="id" readonly="readonly" value="<%=usu.getId_usu()%>"></td>
+                            <td>Nombre:</td>
+                            <td><input type="text" name="nombre" id="nombre" readonly="readonly" value="<%=usu.getNom_usu()%>"></td>
                         </tr>
                         <tr>
-                            <td>Nombre del Pan:</td>
-                            <td><input type="text" name="pan" id="pan" readonly="readonly" value="<%=usu.getNom_usu()%>"></td>
+                            <td>Apellido:</td>
+                            <td><input type="text" name="appat" id="appat" readonly="readonly" value="<%=usu.getAppat_usu()%>"></td>
                         </tr>
                         <tr>
-                            <td>Precio del Pan:</td>
-                            <td><input type="text" name="precio" id="precio" readonly="readonly" value="<%=usu.getAppat_usu()%>"></td>
+                            <td>Usuario:</td>
+                            <td><input type="text" name="user" id="user" readonly="readonly" value="<%=usu.getUser_usu()%>"></td>
                         </tr>
                         <tr>
-                            <td>Stock del Pan:</td>
-                            <td><input type="text" name="stock" id="stock" readonly="readonly" value="<%=usu.getUser_usu()%>"></td>
-                        </tr>
-                        <tr>
-                            <td>Stock del Pan:</td>
-                            <td><input type="text" name="stock" id="stock" readonly="readonly" value="<%=usu.getPass_usu()%>"></td>
+                            <td>Contraseña:</td>
+                            <td><input type="text" name="pass" id="pass" readonly="readonly" value="<%=usu.getPass_usu()%>"></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><a href="<%=direccion%>">Editar</a></td>
+                            <td><a href="<%=direccion%>">Editar Perfil</a></td>
                         </tr>
                     </table>
             </table>

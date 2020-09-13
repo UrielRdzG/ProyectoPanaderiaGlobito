@@ -27,7 +27,6 @@ public class MUsuario {
         boolean registro=false;
         Connection con=null;
         PreparedStatement ps=null;
-        ResultSet set=null;
         try {
             con=Conexion.getConnection();
             String q="insert into MUsuario(nom_usu, appat_usu,user_usu,pass_usu, priv_usu) values(?, ?, ?, ?, 0)";
@@ -92,20 +91,18 @@ public class MUsuario {
         boolean modifico=false;
         Connection con=null;
         PreparedStatement ps=null;
+        System.out.println("Es: "+idusuario+" "+nombre);
         try {
             con=Conexion.getConnection();
-            String q="Update MUsuario set nom_usu=?, appat_usu=?,user_usu=?,pass_usu=? where id_usu=?";
+            String q="Update MUsuario set nom_usu=?, appat_usu=?, user_usu=?,pass_usu=? where id_usu=?";
             ps=con.prepareStatement(q);
             ps.setString(1, nombre);
             ps.setString(2, apellido);
             ps.setString(3, usuario);
             ps.setString(4, contrasena);
             ps.setInt(1, idusuario);
-            if(ps.executeUpdate()==1){
-                modifico = true;
-            }else{
-                modifico = false;
-            }
+            ps.executeUpdate();
+            modifico=true;
         } catch (SQLException e) {
             System.out.println("No encontro la tabla MUsuario o no modifico el usuario");
             System.out.println(e.getMessage());
