@@ -51,7 +51,7 @@
                     <th>Apellido</th>
                     <th>Usuario</th>
                     <th>Contraseña</th>
-                    <th>Acciones</th>
+                    <th colspan="2">Acciones</th>
                 </tr>
             <%//Obtener la lista de usuarios
                 Vector<MUsuario> vecusu=new MUsuario().consultarUsuarios();
@@ -59,6 +59,7 @@
                 //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
                 for(MUsuario usu : vecusu){
                     String direccion="eliminarU.jsp?ideli="+usu.getId_usu();
+                    String direccion2="editarU.jsp?ideli="+usu.getId_usu();
                 
             %>
                 <tr>
@@ -67,6 +68,7 @@
                     <td><%=usu.getAppat_usu()%></td>
                     <td><%=usu.getUser_usu()%></td>
                     <td><%=usu.getPass_usu()%></td>
+                    <td><a><a href="<%=direccion2%>">Editar</a></a></td>
                     <td><a><a href="<%=direccion%>">Eliminar</a></a></td>
                 </tr>
             <%}%>

@@ -28,6 +28,10 @@
         <servlet-name>eliminarUsuario</servlet-name>
         <servlet-class>Servlet.eliminarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editarUsuarioA</servlet-name>
+        <servlet-class>Servlet.editarUsuarioA</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>eliminarUsuario</servlet-name>
         <url-pattern>/eliminarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editarUsuarioA</servlet-name>
+        <url-pattern>/editarUsuarioA</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

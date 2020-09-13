@@ -101,7 +101,7 @@ public class MUsuario {
             ps.setString(2, apellido);
             ps.setString(3, usuario);
             ps.setString(4, contrasena);
-            ps.setInt(1, idusuario);
+            ps.setInt(5, idusuario);
             ps.executeUpdate();
             modifico=true;
         } catch (SQLException e) {
