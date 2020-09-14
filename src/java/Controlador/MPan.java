@@ -90,24 +90,22 @@ public class MPan {
     
     //metodo para actualizar precio o nombre del pan
     
-    public boolean modificarPan(int idpan, String nompan, double precio, int stock, int idcsp) throws ClassNotFoundException{
+    public boolean modificarPan(int idpan, String nompan, double precio, int stock, int idcpan, int idcsp) throws ClassNotFoundException{
         boolean modifico=false;
         Connection con=null;
         PreparedStatement ps=null;
         try {
             con=Conexion.getConnection();
-            String q="Update MPan nom_pan = ?, pre_pan = ?, stock_pan = ?, id_csp = ? where id_pan=?";
+            String q="Update MPan nom_pan = ?, pre_pan = ?, stock_pan = ?, id_cpan = ?, id_csp = ? where id_pan=?";
             ps=con.prepareStatement(q);
             ps.setString(1, nompan);
             ps.setDouble(2, precio);
             ps.setInt(3, stock);
-            ps.setInt(4, idcsp);
-            ps.setInt(5, idpan);
-            if(ps.executeUpdate()==1){
-                modifico = true;
-            }else{
-                modifico = false;
-            }
+            ps.setInt(4, idcpan);
+            ps.setInt(5, idcsp);
+            ps.setInt(6, idpan);
+            ps.executeUpdate();
+            modifico=true;
         } catch (SQLException e) {
             System.out.println("No encontro la tabla MUsuario o no modifico el usuario");
             System.out.println(e.getMessage());
@@ -180,6 +178,7 @@ public class MPan {
             String q="select * from MPan where id_pan = ?";
             ps=con.prepareStatement(q);
             ps.setInt(1, idpan);
+            rs=ps.executeQuery();
             while (rs.next()) {                
                 pan=new MPan();
                 pan.setId_pan(rs.getInt("id_pan"));

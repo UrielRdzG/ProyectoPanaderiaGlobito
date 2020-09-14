@@ -36,6 +36,10 @@
         <servlet-name>agregarPan</servlet-name>
         <servlet-class>Servlet.agregarPan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>editarPan</servlet-name>
+        <servlet-class>Servlet.editarPan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>agregarPan</servlet-name>
         <url-pattern>/agregarPan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editarPan</servlet-name>
+        <url-pattern>/editarPan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

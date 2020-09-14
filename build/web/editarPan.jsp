@@ -1,6 +1,6 @@
 <%-- 
-    Document   : agregarPan
-    Created on : 13/09/2020, 05:53:36 PM
+    Document   : editarPan
+    Created on : 13/09/2020, 06:57:18 PM
     Author     : uriel
 --%>
 
@@ -44,13 +44,19 @@
             </nav>
         </header>
         <section class="log-in">
+            <%
+                MPan pan=new MPan().buscarPan(Integer.parseInt(request.getParameter("idpan")));
+            
+            %>
             <br><br><br>
-            <form method="post" action="agregarPan">
-                Nombre del pan: <input type="text" name="nombre">
+            <form method="post" action="editarPan">
+                Id del Pan: <input type="text" name="id" readonly="readonly" value="<%=pan.getId_pan()%>">
                 <br><br>
-                Precio: <input type="" name="precio">
+                Nombre del pan: <input type="text" name="nombre" value="<%=pan.getNom_pan()%>">
                 <br><br>
-                Stock: <input type="text" name="stock">
+                Precio: <input type="" name="precio" value="<%=pan.getPre_pan()%>">
+                <br><br>
+                Stock: <input type="text" name="stock" value="<%=pan.getStock_pan()%>">
                 <br><br>
                 Tipo de pan:<select name="tipo" required>
                                 <option value="1" selected>Dona</option>
@@ -68,7 +74,7 @@
                                 <option value="5">Caramelo</option>
                             </select>
                 <br><br>
-                <input type="submit" value="Registrar Pancito">
+                <input type="submit" value="Editar Pancito">
             </form>
             <br><br><br>
         </section>

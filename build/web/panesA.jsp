@@ -69,8 +69,8 @@
                     <td><%=pan.getNom_pan( )%></td>
                     <td><%=pan.getStock_pan()%></td>
                     <td>$<%=pan.getPre_pan() %></td>
-                    <td><input type="button" value="No" onclick="window.location='editarPan.jsp?idpan=<%=pan.getId_pan()%>';"></td>
-                    <td><input type="submit" value="Si"></td>
+                    <td><input type="button" value="Editar" onclick="window.location='editarPan.jsp?idpan=<%=pan.getId_pan()%>';"></td>
+                    <td><input type="submit" value="Eliminar"></td>
                 </tr>
             </form>
             

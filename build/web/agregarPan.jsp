@@ -68,7 +68,7 @@
                                 <option value="5">Caramelo</option>
                             </select>
                 <br><br>
-                <input type="submit" value="Registrar Panecito">
+                <input type="submit" value="Registrar Pancito">
             </form>
             <br><br><br>
         </section>
