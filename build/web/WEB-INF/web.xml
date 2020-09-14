@@ -40,6 +40,10 @@
         <servlet-name>editarPan</servlet-name>
         <servlet-class>Servlet.editarPan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminarPan</servlet-name>
+        <servlet-class>Servlet.eliminarPan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VerificarUsuario</servlet-name>
         <url-pattern>/VerificarUsuario</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>editarPan</servlet-name>
         <url-pattern>/editarPan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarPan</servlet-name>
+        <url-pattern>/eliminarPan</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

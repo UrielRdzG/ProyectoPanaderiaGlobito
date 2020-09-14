@@ -60,17 +60,16 @@
                 for(MPan pan : vecpan){
                 
                 //l usuario selecciona que pan desea
-                String direccion="editarPan.jsp?idpan="+pan.getId_pan();
-                String direccion2="eliminarPan.jsp?idpan="+pan.getId_pan();
+                
             %>
             
-            <form method="post" accion="eliminarPan?idpan=<%=pan.getId_pan()%>">
+            <form method="post" accion="">
                 <tr>
                     <td><%=pan.getNom_pan( )%></td>
                     <td><%=pan.getStock_pan()%></td>
                     <td>$<%=pan.getPre_pan() %></td>
                     <td><input type="button" value="Editar" onclick="window.location='editarPan.jsp?idpan=<%=pan.getId_pan()%>';"></td>
-                    <td><input type="submit" value="Eliminar"></td>
+                    <td><input type="button" value="Eliminar" onclick="window.location='eliminarPan?idpan=<%=pan.getId_pan()%>';"></td>
                 </tr>
             </form>
             

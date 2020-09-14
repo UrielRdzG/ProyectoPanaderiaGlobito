@@ -66,7 +66,7 @@ public class MPan {
         ResultSet st=null;
         try {
             con=Conexion.getConnection();
-            String q="delete * from MPan where id_pan=?";
+            String q="delete from MPan where id_pan=?";
             ps=con.prepareStatement(q);
             ps.setInt(1, idpan);
             ps.executeUpdate();
