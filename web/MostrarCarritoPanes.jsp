@@ -44,9 +44,9 @@ if(sesionuser.getAttribute("usuario") == null){
             <nav class="menu" >
                 <a href="#">Principal</a>
                 <a href="#">Nosotros</a>
-                <a href="#">Productos</a>
+                <a href="mostrarPanes.jsp">Productos</a>
                 <a href="#">Contacto</a>
-                <a href="perfil.jsp" >Perfil</a>
+                <a href="miCuenta.jsp" >Perfil</a>
             </nav>
         </header>
         <section class="globito" >
@@ -54,7 +54,7 @@ if(sesionuser.getAttribute("usuario") == null){
             <img src="./img/globito.jpg" alt="Globito" >
         </section>
         <h2 class="titutlo-p" >Pan Artesanal</h2>
-        <section class="pan" >
+        <section class="log-in" >
             
             <table width="100%" border="0" >
                 <tr>
@@ -78,8 +78,7 @@ if(sesionuser.getAttribute("usuario") == null){
                 MPan pan = new MPan().buscarPan(dventa.getId_pan());
                 
             %>
-            <p class="img" >
-            <table>
+            
                 <tr>
                     <td><%=pan.getNom_pan() %></td>
                     <td><%=dventa.getCant_dventa()  %>  </td>
@@ -101,13 +100,12 @@ if(sesionuser.getAttribute("usuario") == null){
         <section class="hide" >
             
         </section>
-        <section class="menu" >
-            <a href="MostrarPanes.jsp" >Mostrar todos los Panes</a>
+        <section class="menu2" >
+            <a href="mostrarPanes.jsp" >Mostrar todos los Panes</a>
             <a href="AgregarPan1.jsp" >Agregar al Carrito de Compras</a>
-            <a href="CerrarSesion" >Cerrar Sesión</a>
         </section>
         <footer class="footer" >
-            <p>Desarrollado por demoñoño </p>
+            <p>Desarrollado por mi</p>
         </footer>
         <script src="./js/anima.js" ></script>
     </body>

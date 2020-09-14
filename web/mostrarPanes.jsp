@@ -51,32 +51,36 @@
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="pan">
-            
+        <section class="log-in">
+            <table width="100%" border="0">
+                <tr>
+                    <th>Pan</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                </tr>
             <%//Obtener la lista de los productos, panes
                 Vector<MPan> vecpan=new MPan().listaPanes();
                 //recorrer toda la lista de panes
                 //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
                 for(MPan pan : vecpan){
             %>
-            <p class="img">
-            <table>
+            
+            
                 <tr>
                     <td><%=pan.getNom_pan()%></td>
                     <td><%=pan.getStock_pan()%></td>
                     <td><%=pan.getPre_pan() %></td>
                 </tr>
-            </table>
-            </p>
+            
             <%}%>
+            </table>
         </section>
         <section class="hide">
             
         </section>
-        <section class="menu">
-            <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
+        <section class="menu2">
             <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="CerrarSesion">Cerrar Sesion</a>
+            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>

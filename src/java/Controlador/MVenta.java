@@ -66,12 +66,10 @@ public class MVenta {
             ps.setString(1, v.fecha_venta);
             ps.setFloat(2, v.total_venta);
             //Si se registro en la BD
-            if(ps.executeUpdate()==1){
-                int codigo = this.ultimoCodigoInsertoVenta(con);
-                registro = this.registrarDetalleVenta(codigo, ldvp, con);
-            }else{
-                registro = false;
-            }
+            ps.executeUpdate();
+            int codigo = this.ultimoCodigoInsertoVenta(con);
+            registro = this.registrarDetalleVenta(codigo, ldvp, con);
+
         } catch (SQLException e) {
             System.out.println("No conecto registro la venta");
             System.out.println(e.getMessage());
@@ -102,12 +100,8 @@ public class MVenta {
                 ps.setFloat(3, dv.getSubtotal_venta());
                 ps.setInt(4, codigo);
                 ps.setInt(5, dv.getId_eusu());
-                if(ps.executeUpdate()==1){
-                    registro = false;
-                }else{
-                    registro = false;
-                    break;
-                }
+                ps.executeUpdate();
+                registro=true;
             }
         } catch (SQLException e) {
             System.out.println("No conecto registro el detalle de la venta");

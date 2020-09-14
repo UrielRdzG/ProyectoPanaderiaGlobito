@@ -50,7 +50,7 @@
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="pan">
+        <section class="log-in">
             
             <%//Crear la instancia, para poder buscar la pieza que se queire comprar
                 MPan pan = new MPan().buscarPan(Integer.parseInt(request.getParameter("cod")));
@@ -94,7 +94,7 @@
         <section class="menu">
             <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
             <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="CerrarSesion">Cerrar Sesion</a>
+            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>

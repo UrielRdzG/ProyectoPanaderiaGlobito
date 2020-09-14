@@ -91,7 +91,7 @@ public class AgregarPanCarrito extends HttpServlet {
             
             sesion.setAttribute("stockPanes", stockPanes);
             
-            response.sendRedirect("MostrarCarritoPanes");
+            response.sendRedirect("MostrarCarritoPanes.jsp");
 
         }
     }

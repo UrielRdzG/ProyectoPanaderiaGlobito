@@ -54,6 +54,21 @@ and open the template in the editor.
     color: #A78875;
 }
 
+.menu2 a{
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    text-decoration: none;
+    font-size: 20px;
+    padding-right: 10px;
+    color: black;
+    transition: all 200ms;
+}
+
+.menu2 a:hover{
+    color: #993300;
+}
+
 .globito{
     display: flex;
     flex-direction: row-reverse;

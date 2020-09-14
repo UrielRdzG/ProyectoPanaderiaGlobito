@@ -50,7 +50,7 @@
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="pan">
+        <section class="log-in">
             <h4>Gracias por su compra ♥</h4>
         </section>
         <section class="hide">

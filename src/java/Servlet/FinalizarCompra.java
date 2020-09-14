@@ -42,7 +42,12 @@ public class FinalizarCompra extends HttpServlet {
             HttpSession sesion = request.getSession(true);
             //la fecha de la venta
             Date dia = new Date();
-            
+            Calendar fecha = new GregorianCalendar();
+            int ano = fecha.get(Calendar.YEAR);
+            int mes = fecha.get(Calendar.MONTH);
+            int day = fecha.get(Calendar.DAY_OF_MONTH);
+            String fech=ano+"/"+mes+"/"+day;
+            System.out.println(fech);
             //los atributos de la sesion de los detalles de la venta y el stock del pan
             
             Vector<DVenta> vectorDetalle = 
@@ -68,7 +73,7 @@ public class FinalizarCompra extends HttpServlet {
             dventas.setId_eusu(eusuario.getId_eusu());
             
             
-            venta.setFecha_venta(dia.toString());
+            venta.setFecha_venta(fech);
             venta.setTotal_venta(totalPagar);
             
             //ahora son las operaciones para registrar la venta y dventa
