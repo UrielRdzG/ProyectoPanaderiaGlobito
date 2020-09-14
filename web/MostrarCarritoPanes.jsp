@@ -4,96 +4,110 @@
     Author     : uriel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, Controlador.*" session="true"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, Controlador.*"
+        session="true"%>
 
 <%
-    String usuario="";
-    //sesion del usuario
-    HttpSession sesionuser=request.getSession();
-    //verificar usuario
-    if(sesionuser.getAttribute("usuario")==null){
+String usuario = "";
+//sesion del usuario
+HttpSession sesionuser = request.getSession();
+//verficar el usuario
+if(sesionuser.getAttribute("usuario") == null){
 %>
-<jsp:forward page="inicio.jsp">
-    <jsp:param name="error" value="Es obligatorio autentificarse con sesion valida"></jsp:param>
+
+<jsp:forward page="inicio.jsp" >
+    <jsp:param name="error" value="Es obligatorio autenticarse con una sesion válida" />
 </jsp:forward>
-<%
+<%  
     }else{
-        usuario=(String)sesionuser.getAttribute("usuario");
+        usuario = (String)sesionuser.getAttribute("usuario");
     }
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Panaderia Globito</title>
+        <title>PanaderiaGlobito</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" 
+              rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css"/>
-        <link rel="shortcut" href="./img/logo.png" type="image/x/icon"/>
+        <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon"/>
     </head>
     <body>
-        <header class="header">
-            <div class="logo">
-                <h1>Panaderia el Globito</h1>
-                <img src="./img/logo.png" alt="logo">
+        <header class="header" >
+            <div class="logo" >
+                <h1>Panederia el Globito</h1>
+                <img src="./img/logo.jpg" alt="logo">       
             </div>
-            <nav class="menu">
-                <a href="index.html">Principal</a>
-                <a href="nosotros.html">Nosotros</a>
-                <a href="productos.html">Productos</a>
-                <a href="contacto.html">Contacto</a>
-                <a href="miCuenta.jsp">perfil</a>
+            <nav class="menu" >
+                <a href="#">Principal</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Productos</a>
+                <a href="#">Contacto</a>
+                <a href="perfil.jsp" >Perfil</a>
             </nav>
         </header>
-        <section class="globito">
-            <h2>Pan artesanal, escoga el que mas le guste uwu</h2>
-            <img src="./img/globito.jpg" alt="Globito">
+        <section class="globito" >
+            <h2>Pan artesanal, escoja el que mas le guste uwu</h2>
+            <img src="./img/globito.jpg" alt="Globito" >
         </section>
-        <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="pan">
+        <h2 class="titutlo-p" >Pan Artesanal</h2>
+        <section class="pan" >
             
-            <table width="100%" border="0">
+            <table width="100%" border="0" >
                 <tr>
                     <th>Nombre del Pan</th>
                     <th>Cantidad</th>
-                    <th>Subtotal</th>
+                    <th>SubTotal</th>
+                    
                 </tr>
             
             
-            <%
-                Vector<DVenta> detalleVentas = (Vector<DVenta>)sesionuser.getAttribute("detalleVenta");
+            
+            <% 
+                Vector<DVenta> detalleVentas = 
+                        (Vector<DVenta>)sesionuser.getAttribute("detalleVenta");
                 Vector<MPan> stockPanes = null;
-                for(DVenta dventa:detalleVentas){
-                    MPan pan = new MPan().buscarPan(dventa.getId_pan());
+                
+                
+                for(DVenta dventa: detalleVentas){
+                    
+                //necesitamos buscar el id del pan que se esta escogiendo
+                MPan pan = new MPan().buscarPan(dventa.getId_pan());
+                
             %>
-            <p class="img">
+            <p class="img" >
             <table>
                 <tr>
-                    <td><%=pan.getNom_pan( )%></td>
-                    <td><%=dventa.getCant_dventa()%></td>
-                    <td><%=dventa.getSubtotal_venta()%></td>
+                    <td><%=pan.getNom_pan() %></td>
+                    <td><%=dventa.getCant_dventa()  %>  </td>
+                    <td><%=dventa.getSubtotal_venta()
+                        /*un atributo mas para obtener
+                            la url de la imagen correspondiente del pan*/
+                        %>  </td>
                     
                 </tr>
             <%}%>
             <tr>
                 <td></td>
-                <td><a href="FinalizarCompra"></a></td>
+                <td><a href="FinalizarCompra" >Pagar Panes</a></td>
             </tr>
-            </table>
-            </p>
-            <%}%>
+            </table></p>
         </section>
+        
         </table>
-        <section class="hide">
+        <section class="hide" >
             
         </section>
-        <section class="menu">
-            <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
-            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="CerrarSesion">Cerrar Sesion</a>
+        <section class="menu" >
+            <a href="MostrarPanes.jsp" >Mostrar todos los Panes</a>
+            <a href="AgregarPan1.jsp" >Agregar al Carrito de Compras</a>
+            <a href="CerrarSesion" >Cerrar Sesión</a>
         </section>
-        <footer class="footer">
-            <p>Desarrollado por mi :D</p>
+        <footer class="footer" >
+            <p>Desarrollado por demoñoño </p>
         </footer>
         <script src="./js/anima.js" ></script>
     </body>
