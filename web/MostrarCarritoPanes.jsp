@@ -8,11 +8,12 @@
         session="true"%>
 
 <%
-String usuario = "";
-//sesion del usuario
-HttpSession sesionuser = request.getSession();
-//verficar el usuario
-if(sesionuser.getAttribute("usuario") == null){
+    String usuario="";
+    Integer idusuario;
+    //sesion del usuario
+    HttpSession sesionuser=request.getSession();
+    //verificar usuario
+    if(sesionuser.getAttribute("usuario")==null){
 %>
 
 <jsp:forward page="inicio.jsp" >
@@ -20,8 +21,8 @@ if(sesionuser.getAttribute("usuario") == null){
 </jsp:forward>
 <%  
     }else{
-        usuario = (String)sesionuser.getAttribute("usuario");
-    }
+        usuario=(String)sesionuser.getAttribute("usuario");
+        idusuario=(Integer)session.getAttribute("idusuario");
 %>
 
 <!DOCTYPE html>
@@ -91,7 +92,7 @@ if(sesionuser.getAttribute("usuario") == null){
             <%}%>
             <tr>
                 <td></td>
-                <td><a href="FinalizarCompra" >Pagar Panes</a></td>
+                <td><a href="FinalizarCompra?idusuario=<%=idusuario%>">Pagar Panes</a></td>
             </tr>
             </table></p>
         </section>
@@ -110,3 +111,4 @@ if(sesionuser.getAttribute("usuario") == null){
         <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>

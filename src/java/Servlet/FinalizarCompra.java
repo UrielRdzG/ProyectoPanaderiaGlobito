@@ -47,6 +47,8 @@ public class FinalizarCompra extends HttpServlet {
             int mes = fecha.get(Calendar.MONTH);
             int day = fecha.get(Calendar.DAY_OF_MONTH);
             String fech=ano+"/"+mes+"/"+day;
+            int ideusu=Integer.parseInt(request.getParameter("idusuario"));
+            System.out.println("la ideusu: "+ideusu);
             //los atributos de la sesion de los detalles de la venta y el stock del pan
             
             Vector<DVenta> vectorDetalle = 
@@ -66,10 +68,10 @@ public class FinalizarCompra extends HttpServlet {
             for(DVenta dventa : vectorDetalle){
                 //operacion de que voy a pagar
                 totalPagar += dventa.getSubtotal_dventa();
+                dventa.setId_eusu(ideusu);
             }
             
             //este es el que tiene que ajustar para que obtenga el usuario
-            dventas.setId_eusu(eusuario.getId_eusu());
             
             
             venta.setFecha_venta(fech);
