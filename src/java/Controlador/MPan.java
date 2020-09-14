@@ -96,7 +96,7 @@ public class MPan {
         PreparedStatement ps=null;
         try {
             con=Conexion.getConnection();
-            String q="Update MPan nom_pan = ?, pre_pan = ?, stock_pan = ?, id_cpan = ?, id_csp = ? where id_pan=?";
+            String q="Update MPan set nom_pan = ?, pre_pan = ?, stock_pan = ?, id_cpan = ?, id_csp = ? where id_pan=?";
             ps=con.prepareStatement(q);
             ps.setString(1, nompan);
             ps.setDouble(2, precio);
