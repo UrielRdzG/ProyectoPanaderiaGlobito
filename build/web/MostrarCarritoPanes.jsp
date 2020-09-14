@@ -82,7 +82,7 @@ if(sesionuser.getAttribute("usuario") == null){
                 <tr>
                     <td><%=pan.getNom_pan() %></td>
                     <td><%=dventa.getCant_dventa()  %>  </td>
-                    <td><%=dventa.getSubtotal_venta()
+                    <td><%=dventa.getSubtotal_dventa()
                         /*un atributo mas para obtener
                             la url de la imagen correspondiente del pan*/
                         %>  </td>

@@ -12,10 +12,10 @@ package Controlador;
 public class DVenta {
     
     private int id_dventa, id_pan, cant_dventa, id_venta, id_eusu;
-    private float subtotal_venta;
+    private float subtotal_dventa;
     
     public DVenta(){
-        
+    
     }
 
     public int getId_dventa() {
@@ -58,12 +58,12 @@ public class DVenta {
         this.id_eusu = id_eusu;
     }
 
-    public float getSubtotal_venta() {
-        return subtotal_venta;
+    public float getSubtotal_dventa() {
+        return subtotal_dventa;
     }
 
-    public void setSubtotal_venta(float subtotal_venta) {
-        this.subtotal_venta = subtotal_venta;
+    public void setSubtotal_dventa(float subtotal_dventa) {
+        this.subtotal_dventa = subtotal_dventa;
     }
     
     

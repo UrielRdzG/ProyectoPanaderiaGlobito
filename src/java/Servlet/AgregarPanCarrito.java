@@ -78,7 +78,7 @@ public class AgregarPanCarrito extends HttpServlet {
             detalleVentas.setId_dventa(vectorDetalle.size());
             
             detalleVentas.setId_pan(codigo);
-            detalleVentas.setSubtotal_venta(subtotal);
+            detalleVentas.setSubtotal_dventa(subtotal);
             detalleVentas.setCant_dventa(cantidad);
             
             //se agrega al vector
