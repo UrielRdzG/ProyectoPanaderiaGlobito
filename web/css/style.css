@@ -235,6 +235,18 @@ and open the template in the editor.
     background: white;
 }
 
+.sec-com{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding: 80px;
+    background: white;
+}
+
+
 .footer{
     width: 100%;
     height: 80px;

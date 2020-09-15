@@ -43,11 +43,20 @@
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
-        <section class="log-in">
+        <section class="sec-com">
+            <br><br><br>
+            <h3>Mostrar registros por: </h3><br>
+            <p>
+                <button onclick="window.location='ventas.jsp'">Todos</button>
+                <button onclick="window.location='ventasD.jsp'">Dia</button>
+                <button onclick="window.location='ventasS.jsp'">Semana</button>
+                <button onclick="window.location='ventasM.jsp'">Mes</button>
+            </p>
+            <br><br><br>
             <table width="100%" border="0" align="center">
                 <tr>
                     <th>ID</th>
-                    <th>Fecha de venta</th>
+                    <th>Fecha de venta(Año/Mes/Dia)</th>
                     <th>Total de la venta</th>
                     <th colspan="2">Acciones</th>
                 </tr>
@@ -62,8 +71,8 @@
             %>
                 <tr>
                     <td><%=mv.getId_venta()%></td>
-                    <td><%=mv.getFecha_venta()%></td>
-                    <td><%=mv.getTotal_venta()%></td>
+                    <td align="center"><%=mv.getFecha_venta()%></td>
+                    <td>$<%=mv.getTotal_venta()%></td>
                     <td><a><a href="<%=direccion2%>">Editar</a></a></td>
                     <td><a><a href="<%=direccion%>">Eliminar</a></a></td>
                 </tr>

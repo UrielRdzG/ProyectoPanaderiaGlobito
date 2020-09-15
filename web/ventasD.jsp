@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ventas
-    Created on : 14/09/2020, 09:52:46 PM
+    Document   : ventasD
+    Created on : 14/09/2020, 10:21:26 PM
     Author     : uriel
 --%>
 
@@ -61,7 +61,7 @@
                     <th colspan="2">Acciones</th>
                 </tr>
             <%//Obtener la lista de usuarios
-                Vector<MVenta> vecven=new MVenta().consultarVentas();
+                Vector<MVenta> vecven=new MVenta().consultarVentasDia();
                 //recorrer toda la lista de panes
                 //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
                 for(MVenta mv : vecven){
@@ -82,3 +82,4 @@
     </body>
 </html>
 <%}%>
+
