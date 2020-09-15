@@ -53,12 +53,12 @@
         </header>
         <section class="globito" >
             <h2>Pan artesanal, escoja el que mas le guste uwu</h2>
-            <img src="./img/logo.jpg" alt="Globito" >
+            <img src="./img/globito.jpg" alt="Globito" >
         </section>
-        <h2 class="titutlo-p" >Pan Artesanal</h2>
-        <section class="log-in" >
+        <h2 class="titutlo-p" align="center">Mi carrito</h2>
+        <section class="log-in" align="center">
             
-            <table width="100%" border="0" >
+            <table width="100%" border="0" align="center">
                 <tr>
                     <th>Nombre del Pan</th>
                     <th>Cantidad</th>
@@ -103,9 +103,10 @@
         <section class="hide" >
             
         </section>
-        <section class="menu2" >
+        <section class="menu2" align="center">
             <a href="mostrarPanes.jsp" >Mostrar todos los Panes</a>
             <a href="AgregarPan1.jsp" >Agregar al Carrito de Compras</a>
+            <br><br>
         </section>
         <footer class="footer" >
             <p>Desarrollado por mi</p>

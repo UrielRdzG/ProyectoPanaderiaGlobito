@@ -50,7 +50,7 @@ public class DVenta {
             }
             
         } catch (SQLException e) {
-            System.out.println("No encontro la tabla MVenta, no se puede mostrar la lista de ventas por mes");
+            System.out.println("No encontro la tabla DVenta, no se puede mostrar el detalle de la venta");
             System.out.println(e.getMessage());
             System.out.println(e.getStackTrace());
             mv=null;
@@ -64,6 +64,28 @@ public class DVenta {
             }
         }return mv;
     
+    }
+    
+    public int cantidad(int idpan) throws ClassNotFoundException{
+        int cantidad=0;
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        try {
+            con=Conexion.getConnection();
+            String q="select cant_dventa from DVenta where id_pan=?";
+            ps=con.prepareStatement(q);
+            ps.setInt(1, idpan);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                cantidad+=rs.getInt("cant_dventa");
+            }
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla DVenta, no se regresar la cantidad de panes vendidos");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        }
+        return cantidad;
     }
     
     public int getId_dventa() {

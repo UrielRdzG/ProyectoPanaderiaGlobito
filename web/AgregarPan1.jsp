@@ -51,7 +51,7 @@
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="log-in">
+        <section class="sec-com">
             
             <table width="100%" border="0">
                 <tr>
@@ -74,10 +74,10 @@
             
             
                 <tr>
-                    <td><%=pan.getNom_pan( )%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                    <td><a href="<%=direccion%>">Comprar</a></td>
+                    <td align="center"><%=pan.getNom_pan( )%></td>
+                    <td align="center"><%=pan.getStock_pan()%></td>
+                    <td align="right">$<%=pan.getPre_pan() %></td>
+                    <td align="center"><a href="<%=direccion%>">Comprar</a></td>
                 </tr>
             
             
@@ -88,9 +88,10 @@
         <section class="hide">
             
         </section>
-        <section class="menu2">
-            <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
+        <section class="menu2" align="center">
+            <a href="mostrarPanes.jsp" >Mostrar todos los Panes</a>
             <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
+            <br><br>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>

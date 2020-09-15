@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ventasD
-    Created on : 14/09/2020, 10:21:26 PM
+    Document   : ventasPanes
+    Created on : 15/09/2020, 09:51:00 AM
     Author     : uriel
 --%>
 
@@ -58,20 +58,20 @@
             <table width="100%" border="0" align="center">
                 <tr>
                     <th>ID</th>
-                    <th>Fecha de venta(Año/Mes/Dia)</th>
-                    <th>Total de la venta</th>
-                    <th>Acciones</th>
+                    <th>Pan</th>
+                    <th>Cantidad total de piezas vendidas</th>
                 </tr>
             <%
-                Vector<MVenta> vecven=new MVenta().consultarVentasDia();
-                for(MVenta mv : vecven){
-                    String direccion="detalleVenta.jsp?idven="+mv.getId_venta();
+                Vector<MPan> vecpan=new MPan().listaPanes();
+                DVenta can=new DVenta();
+                
+                for(MPan mv : vecpan){
+                    String direccion="detalleVenta.jsp?idven="+mv.getId_pan();
             %>
                 <tr>
-                    <td><%=mv.getId_venta()%></td>
-                    <td align="center"><%=mv.getFecha_venta()%></td>
-                    <td>$<%=mv.getTotal_venta()%></td>
-                    <td><a href="<%=direccion%>">Mas info.</a></a></td>
+                    <td><%=mv.getId_pan()%></td>
+                    <td align="center"><%=mv.getNom_pan()%></td>
+                    <td><%=can.cantidad(mv.getId_pan())%></td>
                 </tr>
             <%}%>
             </table>
@@ -80,4 +80,3 @@
     </body>
 </html>
 <%}%>
-

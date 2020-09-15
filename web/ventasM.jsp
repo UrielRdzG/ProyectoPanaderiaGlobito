@@ -52,6 +52,7 @@
                 <button onclick="window.location='ventasS.jsp'">Semana</button>
                 <button onclick="window.location='ventasM.jsp'">Mes</button>
                 <button onclick="window.location='ventasMasGrandes.jsp'">Mas Grandes</button>
+                <button onclick="window.location='ventasPanes.jsp'">Panes mas vendidos</button>
             </p>
             <br><br><br>
             <table width="100%" border="0" align="center">

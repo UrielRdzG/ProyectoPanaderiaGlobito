@@ -52,7 +52,7 @@
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
         <section class="log-in">
-            <table width="100%" border="0">
+            <table width="100%" border="0" align='center'>
                 <tr>
                     <th>Pan</th>
                     <th>Stock</th>
@@ -78,9 +78,10 @@
         <section class="hide">
             
         </section>
-        <section class="menu2">
+        <section class="menu2" align="center">
             <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
             <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
+            <br><br>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
