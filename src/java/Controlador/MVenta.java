@@ -136,6 +136,44 @@ public class MVenta {
     
     }
     
+    public Vector<MVenta> consultarVentasMes() throws ClassNotFoundException{
+        Vector<MVenta> mv=new Vector<MVenta>();
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try {
+            con=Conexion.getConnection();
+            String q="select * from MVenta where fecha_venta between '2020-07-14' and '2020-08-14'";
+            ps=con.prepareStatement(q);
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {                
+                MVenta ven=new MVenta();
+                ven.setId_venta(rs.getInt("id_venta"));
+                ven.setFecha_venta(rs.getString("fecha_venta"));
+                ven.setTotal_venta(rs.getFloat("total_venta"));
+                mv.add(ven);
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MVenta, no se puede mostrar la lista de ventas por mes");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            mv=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }return mv;
+    
+    }
+    
     private int ultimoCodigoInsertoVenta(Connection con){
         int codigo = 0;
         PreparedStatement ps = null;
