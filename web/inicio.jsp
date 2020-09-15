@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css"/>
         <link rel="shortcut" href="./img/logo.png" type="image/x/icon"/>
+        <script src="js/validar.js" type="text/javascript"></script>
     </head>
     <body>
         <header class="header">
@@ -41,11 +42,11 @@
                             <table width="620" border="0">
                                 <tr>
                                     <td>Usuario:</td>
-                                    <td><input type="text" name="user" id="user"></td>
+                                    <td><input type="text" name="user" id="user" onkeypress="return validarLN(event)" maxlength="32"></td>
                                 </tr>
                                 <tr>
                                     <td>Password:</td>
-                                    <td><input type="password" name="pass" id="pass"></td>
+                                    <td><input type="password" name="pass" id="pass" onkeypress="return validarLN(event)" maxlength="32"></td>
                                 </tr>
                                 <tr>
                                     <td><a href="registro.jsp">Nueva cuenta</a></td>
