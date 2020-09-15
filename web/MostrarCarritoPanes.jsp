@@ -42,17 +42,18 @@
                 <h1>Panederia el Globito</h1>
                 <img src="./img/logo.jpg" alt="logo">       
             </div>
-            <nav class="menu" >
-                <a href="#">Principal</a>
-                <a href="#">Nosotros</a>
+            <nav class="menu">
+                <a href="indexU.html">Principal</a>
+                <a href="nosotrosU.html">Nosotros</a>
                 <a href="mostrarPanes.jsp">Productos</a>
-                <a href="#">Contacto</a>
-                <a href="miCuenta.jsp" >Perfil</a>
+                <a href="contactoU.html">Contacto</a>
+                <a href="miCuenta.jsp">perfil</a>
+                <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
         <section class="globito" >
             <h2>Pan artesanal, escoja el que mas le guste uwu</h2>
-            <img src="./img/globito.jpg" alt="Globito" >
+            <img src="./img/logo.jpg" alt="Globito" >
         </section>
         <h2 class="titutlo-p" >Pan Artesanal</h2>
         <section class="log-in" >

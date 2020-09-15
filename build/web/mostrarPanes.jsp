@@ -38,10 +38,10 @@
                 <img src="./img/logo.png" alt="logo">
             </div>
             <nav class="menu">
-                <a href="index.html">Principal</a>
-                <a href="nosotros.html">Nosotros</a>
+                <a href="indexU.html">Principal</a>
+                <a href="nosotrosU.html">Nosotros</a>
                 <a href="mostrarPanes.jsp">Productos</a>
-                <a href="contacto.html">Contacto</a>
+                <a href="contactoU.html">Contacto</a>
                 <a href="miCuenta.jsp">perfil</a>
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>

@@ -82,8 +82,9 @@ public class FinalizarCompra extends HttpServlet {
             boolean registrarVenta = venta.registrarVenta(venta, vectorDetalle);
             boolean actualizarVentaStock = pan.actualizarStock(stockPanes);
             
-            if(registrarVenta != actualizarVentaStock){
+            if(registrarVenta == actualizarVentaStock){
                 response.sendRedirect("Mensaje.jsp");
+                vectorDetalle.clear();
             }else{
                 response.sendRedirect("Errores.jsp");
             }

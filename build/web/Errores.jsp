@@ -32,12 +32,13 @@
                 <h1>Panederia el Globito</h1>
                 <img src="./img/logo.jpg" alt="logo">       
             </div>
-            <nav class="menu" >
-                <a href="#">Principal</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Productos</a>
-                <a href="#">Contacto</a>
-                <a href="inicio.jsp" >Iniciar Sesion</a>
+            <nav class="menu">
+                <a href="indexU.html">Principal</a>
+                <a href="nosotrosU.html">Nosotros</a>
+                <a href="mostrarPanes.jsp">Productos</a>
+                <a href="contactoU.html">Contacto</a>
+                <a href="miCuenta.jsp">perfil</a>
+                <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
         <section class="globito" >
