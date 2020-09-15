@@ -182,7 +182,7 @@ public class MVenta {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MVenta order by total_venta ASC";
+            String q="select * from MVenta order by total_venta DESC";
             ps=con.prepareStatement(q);
             rs=ps.executeQuery();
             

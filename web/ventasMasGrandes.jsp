@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ventas
-    Created on : 14/09/2020, 09:52:46 PM
+    Document   : ventasMasGrandes
+    Created on : 14/09/2020, 11:52:16 PM
     Author     : uriel
 --%>
 
@@ -62,7 +62,7 @@
                     <th>Acciones</th>
                 </tr>
             <%
-                Vector<MVenta> vecven=new MVenta().consultarVentas();
+                Vector<MVenta> vecven=new MVenta().consultarVentasMasGrandes();
                 for(MVenta mv : vecven){
                     String direccion="detalleVenta.jsp?idven="+mv.getId_venta();
             %>
@@ -79,3 +79,4 @@
     </body>
 </html>
 <%}%>
+
