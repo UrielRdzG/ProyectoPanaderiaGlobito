@@ -58,23 +58,21 @@
                     <th>ID</th>
                     <th>Fecha de venta(Año/Mes/Dia)</th>
                     <th>Total de la venta</th>
-                    <th colspan="2">Acciones</th>
+                    <th>Acciones</th>
                 </tr>
             <%
                 Vector<MVenta> vecven=new MVenta().consultarVentas();
                 for(MVenta mv : vecven){
-                    String direccion="eliminarU.jsp?ideli="+mv.getId_venta();
-                    String direccion2="editarU.jsp?ideli="+mv.getId_venta();
-                
+                    String direccion="detalleVenta.jsp?idven="+mv.getId_venta();
             %>
                 <tr>
                     <td><%=mv.getId_venta()%></td>
                     <td align="center"><%=mv.getFecha_venta()%></td>
                     <td>$<%=mv.getTotal_venta()%></td>
-                    <td><a><a href="<%=direccion2%>">Editar</a></a></td>
-                    <td><a><a href="<%=direccion%>">Eliminar</a></a></td>
+                    <td><a href="<%=direccion%>">Mas info.</a></a></td>
                 </tr>
             <%}%>
+            </table>
         </section>
         
     </body>
