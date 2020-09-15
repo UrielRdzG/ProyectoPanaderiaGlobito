@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ventas
-    Created on : 14/09/2020, 09:52:46 PM
+    Document   : ventasS
+    Created on : 14/09/2020, 10:28:57 PM
     Author     : uriel
 --%>
 
@@ -61,7 +61,7 @@
                     <th colspan="2">Acciones</th>
                 </tr>
             <%
-                Vector<MVenta> vecven=new MVenta().consultarVentas();
+                Vector<MVenta> vecven=new MVenta().consultarVentasSemana();
                 for(MVenta mv : vecven){
                     String direccion="eliminarU.jsp?ideli="+mv.getId_venta();
                     String direccion2="editarU.jsp?ideli="+mv.getId_venta();
