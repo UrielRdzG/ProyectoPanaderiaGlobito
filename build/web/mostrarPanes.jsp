@@ -39,10 +39,10 @@
             </div>
             <nav class="menu">
                 <a href="indexU.html">Principal</a>
-                <a href="nosotrosU.html">Nosotros</a>
+                <a href="nosotrosU.jsp">Nosotros</a>
                 <a href="mostrarPanes.jsp">Productos</a>
-                <a href="contactoU.html">Contacto</a>
-                <a href="miCuenta.jsp">perfil</a>
+                <a href="contactoU.jsp">Contacto</a>
+                <a href="miCuenta.jsp">Mi cuenta</a>
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>

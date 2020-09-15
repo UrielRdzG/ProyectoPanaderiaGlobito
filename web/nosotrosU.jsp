@@ -1,6 +1,6 @@
 <%-- 
-    Document   : mostrarPanes
-    Created on : 10/09/2020, 06:07:00 PM
+    Document   : nosotrosU
+    Created on : 15/09/2020, 12:17:40 AM
     Author     : uriel
 --%>
 
@@ -19,9 +19,8 @@
 <%
     }else{
         usuario=(String)sesionuser.getAttribute("usuario");
-    }
+    
 %>
-<!DOCTYPE html>
 <html>
     <head>
         <title>Panaderia Globito</title>
@@ -46,41 +45,37 @@
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
-        <section class="globito">
-            <h2>Pan artesanal, escoga el que mas le guste uwu</h2>
-            <img src="./img/globito.jpg" alt="Globito">
-        </section>
-        <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="log-in">
-            <table width="100%" border="0">
-                <tr>
-                    <th>Pan</th>
-                    <th>Stock</th>
-                    <th>Precio</th>
-                </tr>
-            <%//Obtener la lista de los productos, panes
-                Vector<MPan> vecpan=new MPan().listaPanes();
-                //recorrer toda la lista de panes
-                //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
-                for(MPan pan : vecpan){
-            %>
+        <section class="sec-con">
+            <h2 align="center">Nuestra mision</h2>
+
+            <p><img src="./img/nosotros.jpg" alt="Nosotros"><br>
+            Somos una empresa dedicada a la elaboración de productos de panadería y pastelería comprometidos 
+            con nuestros clientes en brindarles productos de gran calidad y sabor con un servicio amable y oportuno.</p>
+
+            <br><br><h2>Nuestra vision</h2><br>
+
+            <p><img src="./img/nosotros2.jpg" alt="Nosotros" class="sec-con-der"><br><br>Ser una empresa altamente competitiva, innovadora y sobresaliente en el mercado nacional de panaderías, 
+                alcanzando un alto nivel de desarrollo humano y tecnológico.</p>
             
+            <br><br><br>
             
-                <tr>
-                    <td><%=pan.getNom_pan()%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                </tr>
+            <h2 align="center">Nuestros valores</h2><br>
             
-            <%}%>
-            </table>
+            <p align="center">Responsabilidad<br><br>
+
+                Puntualidad<br><br>
+
+                Respeto<br><br>
+
+                Honradez<br><br>
+
+                Honestidad<br><br>
+
+                Trabajo en equipo</p>
+            <br><br>
         </section>
         <section class="hide">
             
-        </section>
-        <section class="menu2">
-            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
@@ -88,3 +83,4 @@
         <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : mostrarPanes
-    Created on : 10/09/2020, 06:07:00 PM
+    Document   : indexU
+    Created on : 15/09/2020, 12:11:41 AM
     Author     : uriel
 --%>
 
@@ -19,7 +19,7 @@
 <%
     }else{
         usuario=(String)sesionuser.getAttribute("usuario");
-    }
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -47,40 +47,24 @@
             </nav>
         </header>
         <section class="globito">
-            <h2>Pan artesanal, escoga el que mas le guste uwu</h2>
+            <br><center><h1>Bienvenido <%=usuario%></h1></center><br>
+            <h2>La panaderia el globito, hace pan artesanal desde 1842, y ahora esta en la nube, compre su panecito aqui (*w*)</h2>
             <img src="./img/globito.jpg" alt="Globito">
         </section>
         <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="log-in">
-            <table width="100%" border="0">
-                <tr>
-                    <th>Pan</th>
-                    <th>Stock</th>
-                    <th>Precio</th>
-                </tr>
-            <%//Obtener la lista de los productos, panes
-                Vector<MPan> vecpan=new MPan().listaPanes();
-                //recorrer toda la lista de panes
-                //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
-                for(MPan pan : vecpan){
-            %>
-            
-            
-                <tr>
-                    <td><%=pan.getNom_pan()%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                </tr>
-            
-            <%}%>
-            </table>
+        <section class="pan">
+            <img class="img" src="./img/pan01.jpg" alt="photo1">
+            <img class="img" src="./img/pan02.jpg" alt="photo2">
+            <img class="img" src="./img/pan03.jpg" alt="photo3">
+            <img class="img" src="./img/pan04.jpg" alt="photo4">
+            <img class="img" src="./img/pan05.jpg" alt="photo5">
+            <img class="img" src="./img/pan06.jpg" alt="photo6">
+            <img class="img" src="./img/pan07.jpg" alt="photo7">
+            <img class="img" src="./img/pan08.jpg" alt="photo8">
+            <img class="img" src="./img/pan09.jpg" alt="photo9">
         </section>
         <section class="hide">
             
-        </section>
-        <section class="menu2">
-            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
@@ -88,3 +72,4 @@
         <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>

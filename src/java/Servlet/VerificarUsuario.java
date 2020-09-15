@@ -97,7 +97,7 @@ public class VerificarUsuario extends HttpServlet {
                 //ahora verificamos el tipo de usuario si es admin o cliente
                 if(u.getPriv_usu()==0){
                     //es un cliente
-                    response.sendRedirect("mostrarPanes.jsp");
+                    response.sendRedirect("indexU.jsp");
                 }else{
                     response.sendRedirect("admin.jsp");
                 }

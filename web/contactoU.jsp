@@ -1,6 +1,6 @@
 <%-- 
-    Document   : mostrarPanes
-    Created on : 10/09/2020, 06:07:00 PM
+    Document   : contactoU
+    Created on : 15/09/2020, 12:19:19 AM
     Author     : uriel
 --%>
 
@@ -19,7 +19,7 @@
 <%
     }else{
         usuario=(String)sesionuser.getAttribute("usuario");
-    }
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -46,41 +46,32 @@
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
-        <section class="globito">
-            <h2>Pan artesanal, escoga el que mas le guste uwu</h2>
-            <img src="./img/globito.jpg" alt="Globito">
-        </section>
-        <h2 class="titulo-p">Pan artesanal</h2>
-        <section class="log-in">
-            <table width="100%" border="0">
-                <tr>
-                    <th>Pan</th>
-                    <th>Stock</th>
-                    <th>Precio</th>
-                </tr>
-            <%//Obtener la lista de los productos, panes
-                Vector<MPan> vecpan=new MPan().listaPanes();
-                //recorrer toda la lista de panes
-                //estamos instanciando un objeto de mpan y vamos a reccorer el tama;o del vetor de los panes que estan adentro
-                for(MPan pan : vecpan){
-            %>
-            
-            
-                <tr>
-                    <td><%=pan.getNom_pan()%></td>
-                    <td><%=pan.getStock_pan()%></td>
-                    <td><%=pan.getPre_pan() %></td>
-                </tr>
-            
-            <%}%>
-            </table>
+        
+        <section class="sec-nos">
+            <h1>Nuestras sucursales</h1>
+            <br>
+            <br>
+            <h2 align="center">Sucursal Miguel Hidalgo</h2><br>
+            <p align="center">Euler #29, Col. Polanco V Sección, Miguel Hidalgo, CDMX.<br>
+
+            Horario de atención: Lunes a Viernes de 09:00 a 22:00, Sábado y Domingo de 8:00 a 19:00.<br>
+
+            Teléfono de contacto: 8002266783</p><br><br>
+            <h2 align="center">Sucursal Alvaro Obregon</h2><br>
+            <p align="center">Álvaro Obregón #75 Loc. 75, 77 Y 79 "A Y B, Roma Nte., Cuauhtémoc, CDMX.<br>
+
+            Horario de atención: Lunes a Viernes de 08:30 a 22:00, Sábado y Domingo cerrado.<br>
+
+            Teléfono de contacto: 5552077970</p><br><br>
+            <h2 align="center">Sucursal Cuauhtemoc</h2><br>
+            <p align="center">Av. Chapultepec #19, Col. Roma Norte, Cuauhteémoc, CDMX.<br>
+
+            Horario de atención: Lunes a Viernes de 08:30 a 22:00, Sábado y Domingo de 9:00 a 19:00.<br>
+
+            Teléfono de contacto: 5551405640</p>
         </section>
         <section class="hide">
             
-        </section>
-        <section class="menu2">
-            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
@@ -88,3 +79,4 @@
         <script src="./js/anima.js" ></script>
     </body>
 </html>
+<%}%>
