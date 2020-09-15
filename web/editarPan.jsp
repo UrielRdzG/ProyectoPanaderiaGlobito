@@ -52,11 +52,11 @@
             <form method="post" action="editarPan">
                 Id del Pan: <input type="text" name="id" readonly="readonly" value="<%=pan.getId_pan()%>">
                 <br><br>
-                Nombre del pan: <input type="text" name="nombre" value="<%=pan.getNom_pan()%>">
+                Nombre del pan: <input type="text" name="nombre" value="<%=pan.getNom_pan()%>" onkeypress="return validarL(event)" maxlength="30" required>
                 <br><br>
-                Precio: <input type="" name="precio" value="<%=pan.getPre_pan()%>">
+                Precio: <input type="" name="precio" value="<%=pan.getPre_pan()%>" onkeypress="return validarND(event)" maxlength="5" required>
                 <br><br>
-                Stock: <input type="text" name="stock" value="<%=pan.getStock_pan()%>">
+                Stock: <input type="text" name="stock" value="<%=pan.getStock_pan()%>" onkeypress="return validarN(event)" maxlength="3" required>
                 <br><br>
                 Tipo de pan:<select name="tipo" required>
                                 <option value="1" selected>Dona</option>

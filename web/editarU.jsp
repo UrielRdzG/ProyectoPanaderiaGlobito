@@ -62,19 +62,19 @@
                         </tr>
                         <tr>
                             <td>Nombre</td>
-                            <td><input type="text" name="nombre" id="nombre" value="<%=usu.getNom_usu()%>"></td>
+                            <td><input type="text" name="nombre" id="nombre" value="<%=usu.getNom_usu()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
                         </tr>
                         <tr>
                             <td>Apellidos:</td>
-                            <td><input type="text" name="apellido" id="apellido" value="<%=usu.getAppat_usu()%>"></td>
+                            <td><input type="text" name="apellido" id="apellido" value="<%=usu.getAppat_usu()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
                         </tr>
                         <tr>
                             <td>Usuario:</td>
-                            <td><input type="text" name="user" id="user" value="<%=usu.getUser_usu()%>"></td>
+                            <td><input type="text" name="user" id="user" value="<%=usu.getUser_usu()%>" onkeypress="return validarLN(event)" maxlength="20" required></td>
                         </tr>
                         <tr>
                             <td>Contraseña</td>
-                            <td><input type="text" name="pass" id="pass" value="<%=usu.getPass_usu()%>"></td>
+                            <td><input type="text" name="pass" id="pass" value="<%=usu.getPass_usu()%>" onkeypress="return validarLN(event)" maxlength="20" required></td>
                         </tr>
                     </table>
                     <br><br>
