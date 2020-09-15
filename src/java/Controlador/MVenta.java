@@ -174,6 +174,44 @@ public class MVenta {
     
     }
     
+    public Vector<MVenta> consultarVentasMasGrandes() throws ClassNotFoundException{
+        Vector<MVenta> mv=new Vector<MVenta>();
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try {
+            con=Conexion.getConnection();
+            String q="select * from MVenta order by total_venta ASC";
+            ps=con.prepareStatement(q);
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {                
+                MVenta ven=new MVenta();
+                ven.setId_venta(rs.getInt("id_venta"));
+                ven.setFecha_venta(rs.getString("fecha_venta"));
+                ven.setTotal_venta(rs.getFloat("total_venta"));
+                mv.add(ven);
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MVenta, no se puede mostrar la lista de ventas");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            mv=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }return mv;
+    
+    }
+    
     public Vector<DVenta> consultarDetalleVenta(int id) throws ClassNotFoundException{
         Vector<DVenta> mv=new Vector<DVenta>();
         Connection con=null;
