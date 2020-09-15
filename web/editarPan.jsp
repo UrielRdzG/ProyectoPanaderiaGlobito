@@ -74,7 +74,8 @@
                                 <option value="5">Caramelo</option>
                             </select>
                 <br><br>
-                <input type="submit" value="Editar Pancito">
+                <input type="button" onclick="history.back()" name="volver atrás" value="Volver">
+                <input type="submit" value="Editar Panecito">
             </form>
             <br><br><br>
         </section>

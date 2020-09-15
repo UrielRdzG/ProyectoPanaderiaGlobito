@@ -68,7 +68,7 @@ public class MVenta {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MVenta where fecha_venta='2020-08-14'";
+            String q="select * from MVenta where fecha_venta='2020-09-15'";
             ps=con.prepareStatement(q);
             rs=ps.executeQuery();
             
@@ -106,7 +106,7 @@ public class MVenta {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MVenta where fecha_venta between '2020-08-7' and '2020-08-14'";
+            String q="select * from MVenta where fecha_venta between '2020-09-8' and '2020-09-15'";
             ps=con.prepareStatement(q);
             rs=ps.executeQuery();
             
@@ -144,7 +144,7 @@ public class MVenta {
         
         try {
             con=Conexion.getConnection();
-            String q="select * from MVenta where fecha_venta between '2020-07-14' and '2020-08-14'";
+            String q="select * from MVenta where fecha_venta between '2020-08-15' and '2020-09-15'";
             ps=con.prepareStatement(q);
             rs=ps.executeQuery();
             

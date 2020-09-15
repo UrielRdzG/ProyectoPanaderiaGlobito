@@ -37,7 +37,7 @@ CREATE TABLE `cpan` (
 
 LOCK TABLES `cpan` WRITE;
 /*!40000 ALTER TABLE `cpan` DISABLE KEYS */;
-INSERT INTO `cpan` VALUES (1,'Dona(s)'),(2,'Concha(s)'),(3,'Mantecada(s)'),(4,'Cuernito(s)'),(5,'Oreja(s)');
+INSERT INTO `cpan` VALUES (1,'Dona'),(2,'Conchas'),(3,'Mantecada'),(4,'Cuernito'),(5,'Oreja');
 /*!40000 ALTER TABLE `cpan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,10 +83,10 @@ CREATE TABLE `dventa` (
   KEY `fk_DVenta_MPan1_idx` (`id_pan`),
   KEY `fk_DVenta_MVenta1_idx` (`id_venta`),
   KEY `fk_DVenta_EUsuario1_idx` (`id_eusu`),
-  CONSTRAINT `fk_DVenta_EUsuario1` FOREIGN KEY (`id_eusu`) REFERENCES `eusuario` (`id_eusu`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_DVenta_MPan1` FOREIGN KEY (`id_pan`) REFERENCES `mpan` (`id_pan`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_DVenta_MVenta1` FOREIGN KEY (`id_venta`) REFERENCES `mventa` (`id_venta`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_DVenta_EUsuario1` FOREIGN KEY (`id_eusu`) REFERENCES `eusuario` (`id_eusu`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_DVenta_MPan1` FOREIGN KEY (`id_pan`) REFERENCES `mpan` (`id_pan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_DVenta_MVenta1` FOREIGN KEY (`id_venta`) REFERENCES `mventa` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,7 @@ CREATE TABLE `dventa` (
 
 LOCK TABLES `dventa` WRITE;
 /*!40000 ALTER TABLE `dventa` DISABLE KEYS */;
+INSERT INTO `dventa` VALUES (1,1,3,45,1,6),(2,4,4,52,1,6),(3,7,5,50,1,6),(4,3,10,150,2,3),(5,7,5,50,2,3),(6,10,5,62.5,2,3),(7,2,2,30,3,2),(8,10,1,12.5,3,2),(9,1,3,45,4,6),(10,4,4,52,4,6),(11,10,1,12.5,4,6),(12,8,2,26,4,6),(13,1,12,180,5,7),(14,10,5,62.5,6,3),(15,5,1,14,7,2),(16,2,3,45,7,2),(17,10,2,25,7,2),(18,6,3,33,7,2),(19,2,15,225,8,5),(20,9,10,120,8,5),(21,7,8,80,8,5),(22,4,11,143,8,5),(23,1,11,165,9,4),(24,7,2,20,9,4),(25,8,1,13,10,7),(26,8,2,26,10,7),(27,9,1,12,11,3);
 /*!40000 ALTER TABLE `dventa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +112,7 @@ CREATE TABLE `eusuario` (
   PRIMARY KEY (`id_eusu`),
   KEY `fk_EUsuario_MUsuario1_idx` (`id_usu`),
   CONSTRAINT `fk_EUsuario_MUsuario1` FOREIGN KEY (`id_usu`) REFERENCES `musuario` (`id_usu`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +121,7 @@ CREATE TABLE `eusuario` (
 
 LOCK TABLES `eusuario` WRITE;
 /*!40000 ALTER TABLE `eusuario` DISABLE KEYS */;
-INSERT INTO `eusuario` VALUES (1,1),(2,2),(3,3),(4,6);
+INSERT INTO `eusuario` VALUES (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7);
 /*!40000 ALTER TABLE `eusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,9 +142,9 @@ CREATE TABLE `mpan` (
   PRIMARY KEY (`id_pan`),
   KEY `fk_MPan_CPan_idx` (`id_cpan`),
   KEY `fk_MPan_CSaborPan1_idx` (`id_csp`),
-  CONSTRAINT `fk_MPan_CPan` FOREIGN KEY (`id_cpan`) REFERENCES `cpan` (`id_cpan`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_MPan_CSaborPan` FOREIGN KEY (`id_csp`) REFERENCES `csaborpan` (`id_csp`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_MPan_CPan` FOREIGN KEY (`id_cpan`) REFERENCES `cpan` (`id_cpan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_MPan_CSaborPan` FOREIGN KEY (`id_csp`) REFERENCES `csaborpan` (`id_csp`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +153,7 @@ CREATE TABLE `mpan` (
 
 LOCK TABLES `mpan` WRITE;
 /*!40000 ALTER TABLE `mpan` DISABLE KEYS */;
-INSERT INTO `mpan` VALUES (1,'Dona de Chocolate',15,'25',1,1),(2,'Dona de Caramelo',15,'15',1,5),(3,'Dona de Fresa',15,'10',1,3),(4,'Mantecada de Chocolate',13,'20',3,1),(5,'Mantecada de vainilla',14,'20',3,2),(6,'Cuernito',11,'20',4,2),(7,'Oreja',10,'15',5,2),(8,'Concha de Chocolate',13,'25',2,1),(9,'Concha de Vainilla',12,'25',2,2),(10,'Concha de Chocolate con Vainilla',12.5,'20',2,4);
+INSERT INTO `mpan` VALUES (1,'Dona de Chocolate',15,'1',1,1),(2,'Dona de Caramelo',15,'5',1,5),(3,'Dona de Fresa',15,'10',1,3),(4,'Mantecada de Chocolate',13,'11',3,1),(5,'Mantecada de Vainilla',14,'24',3,2),(6,'Cuernito',11,'22',4,2),(7,'Oreja',10,'0',5,2),(8,'Concha de Chocolate',13,'16',2,1),(9,'Concha de Vainilla',12,'9',2,2),(10,'Concha de Chocolate con vainilla',12.5,'16',2,4);
 /*!40000 ALTER TABLE `mpan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +172,7 @@ CREATE TABLE `musuario` (
   `pass_usu` varchar(45) NOT NULL,
   `priv_usu` varchar(45) NOT NULL,
   PRIMARY KEY (`id_usu`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,7 +181,7 @@ CREATE TABLE `musuario` (
 
 LOCK TABLES `musuario` WRITE;
 /*!40000 ALTER TABLE `musuario` DISABLE KEYS */;
-INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0'),(3,'Adrian','Carselle','AdriiCC','odisea123','0'),(6,'Carlos','Gomez','Charly','contrasena','0');
+INSERT INTO `musuario` VALUES (1,'Admin','Admin','Admin','Admin123','1'),(2,'Uriel','Rodriguez','UrielRdz','contra123','0'),(3,'Carlos','Gomez','Charly','contrasena','0'),(4,'Adrian','Carselle','AdriiCC','odisea','0'),(5,'Hania','Diaz','HI DG','taquitos','0'),(6,'Pedro','Rodriguez','PedroR','pedrito123','0'),(7,'Carmen','Garcia','CarG','password','0');
 /*!40000 ALTER TABLE `musuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +197,7 @@ CREATE TABLE `mventa` (
   `fecha_venta` date NOT NULL,
   `total_venta` float NOT NULL,
   PRIMARY KEY (`id_venta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,6 +206,7 @@ CREATE TABLE `mventa` (
 
 LOCK TABLES `mventa` WRITE;
 /*!40000 ALTER TABLE `mventa` DISABLE KEYS */;
+INSERT INTO `mventa` VALUES (1,'2020-07-24',147),(2,'2020-08-05',262.5),(3,'2020-08-18',42.5),(4,'2020-08-21',135.5),(5,'2020-09-01',180),(6,'2020-09-09',62.5),(7,'2020-09-10',117),(8,'2020-09-12',568),(9,'2020-09-15',185),(10,'2020-09-15',39),(11,'2020-09-15',12);
 /*!40000 ALTER TABLE `mventa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -217,4 +219,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-13 14:24:49
+-- Dump completed on 2020-09-15 13:09:42

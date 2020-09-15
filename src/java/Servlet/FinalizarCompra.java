@@ -45,6 +45,7 @@ public class FinalizarCompra extends HttpServlet {
             Calendar fecha = new GregorianCalendar();
             int ano = fecha.get(Calendar.YEAR);
             int mes = fecha.get(Calendar.MONTH);
+            mes+=1;
             int day = fecha.get(Calendar.DAY_OF_MONTH);
             String fech=ano+"/"+mes+"/"+day;
             int ideusu=Integer.parseInt(request.getParameter("idusuario"));

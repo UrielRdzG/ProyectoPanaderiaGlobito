@@ -71,7 +71,7 @@
                 <tr>
                     <td><%=mv.getId_pan()%></td>
                     <td align="center"><%=mv.getNom_pan()%></td>
-                    <td><%=can.cantidad(mv.getId_pan())%></td>
+                    <td align="center"><%=can.cantidad(mv.getId_pan())%></td>
                 </tr>
             <%}%>
             </table>

@@ -46,7 +46,7 @@
             </nav>
         </header>
         
-        <section class="log-in">
+        <section class="sec-com">
             
             <%
                 MUsuario usu = new MUsuario().buscarUsuario(Integer.parseInt(request.getParameter("ideli")));
