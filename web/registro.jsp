@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css"/>
         <link rel="shortcut" href="./img/logo.png" type="image/x/icon"/>
+        <script src="js/validar.js" type="text/javascript"></script>
     </head>
     <body>
         <header class="header">
@@ -40,22 +41,22 @@
                             <table width="620" border="0">
                                 <tr>
                                     <td>Nombre:</td>
-                                    <td><input type="text" name="nombre" id="nombre"></td>
+                                    <td><input type="text" name="nombre" id="nombre" onkeypress="return validarL(event)" maxlength="50"></td>
                                 </tr>
                                 <tr>
                                     <td>Apellido:</td>
-                                    <td><input type="text" name="apellido" id="apellido"></td>
+                                    <td><input type="text" name="apellido" id="apellido" onkeypress="return validarL(event)" maxlength="50"></td>
                                 </tr>
                                 <tr>
                                     <td>Usuario:</td>
-                                    <td><input type="text" name="user" id="user"></td>
+                                    <td><input type="text" name="user" id="user" onkeypress="return validarLN(event)" maxlength="20"></td>
                                 </tr>
                                 <tr>
                                     <td>Password:</td>
-                                    <td><input type="password" name="pass" id="pass"></td>
+                                    <td><input type="password" name="pass" id="pass" onkeypress="return validarLN(event)" maxlength="20"></td>
                                 </tr>
                                 <tr>
-                                    <td><a href="Inicio.jsp">Ya tengo una cuenta</a></td>
+                                    <td><a href="inicio.jsp">Ya tengo una cuenta</a></td>
                                     <td><input type="submit" value="Entrar" name="inicio"></td>
                                 </tr>
                             </table>

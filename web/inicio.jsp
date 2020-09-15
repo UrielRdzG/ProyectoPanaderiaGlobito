@@ -42,11 +42,11 @@
                             <table width="620" border="0">
                                 <tr>
                                     <td>Usuario:</td>
-                                    <td><input type="text" name="user" id="user" onkeypress="return validarLN(event)" maxlength="32"></td>
+                                    <td><input type="text" name="user" id="user" onkeypress="return validarLN(event)" maxlength="20"></td>
                                 </tr>
                                 <tr>
                                     <td>Password:</td>
-                                    <td><input type="password" name="pass" id="pass" onkeypress="return validarLN(event)" maxlength="32"></td>
+                                    <td><input type="password" name="pass" id="pass" onkeypress="return validarLN(event)" maxlength="20"></td>
                                 </tr>
                                 <tr>
                                     <td><a href="registro.jsp">Nueva cuenta</a></td>

@@ -14,7 +14,7 @@ function validarN(e) {
 function validarL(e) {
 	var teclado = (document.all) ? e.KeyCode : e.which;
 	if (teclado == 8) return true;
-	var patron = /^[A-Za-z]+$/;
+	var patron = /^[A-Za-z ]+$/;
 	var tecla = String.fromCharCode(teclado);
 	return patron.test(tecla);
 }

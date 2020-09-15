@@ -30,6 +30,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./css/style.css"/>
         <link rel="shortcut" href="./img/logo.png" type="image/x/icon"/>
+        <script src="js/validar.js" type="text/javascript"></script>
     </head>
     <body>
         <header class="header">
@@ -79,7 +80,7 @@
                         </tr>
                         <tr>
                             <td>Cantidad:</td>
-                            <td><input type="text" name="cantidad" id="cantidad" value="1"></td>
+                            <td><input type="text" name="cantidad" id="cantidad" value="1" onkeypress="return validarN(event)" maxlength="2"></td>
                         </tr>
                         <tr>
                             <td><input type="button" value="Volver" onclick="window.location='AgregarPan1.jsp';"></td>
