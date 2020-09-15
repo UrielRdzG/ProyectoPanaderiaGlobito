@@ -86,7 +86,7 @@ public class FinalizarCompra extends HttpServlet {
                 response.sendRedirect("Mensaje.jsp");
                 vectorDetalle.clear();
             }else{
-                response.sendRedirect("Errores.jsp");
+                response.sendRedirect("Errores2.jsp");
             }
             
            

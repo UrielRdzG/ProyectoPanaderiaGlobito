@@ -82,21 +82,18 @@
                             <td><input type="text" name="cantidad" id="cantidad" value="1"></td>
                         </tr>
                         <tr>
-                            <td></td>
+                            <td><input type="button" value="Volver" onclick="window.location='AgregarPan1.jsp';"></td>
                             <td><input type="submit" name="comprar" value="Registrar Compra"></td>
                         </tr>
                     </table>
                 </form>
             </table>
+            <br><br><br><br>
         </section>
         <section class="hide">
             
         </section>
-        <section class="menu">
-            <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
-            <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="MostrarCarritoPanes.jsp">Mostrar mi carrito</a>
-        </section>
+        
         <footer class="footer">
             <p>Desarrollado por mi :D</p>
         </footer>

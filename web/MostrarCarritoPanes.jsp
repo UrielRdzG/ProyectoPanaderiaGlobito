@@ -73,7 +73,7 @@
                         (Vector<DVenta>)sesionuser.getAttribute("detalleVenta");
                 Vector<MPan> stockPanes = null;
                 
-                
+                if(detalleVentas!=null){
                 for(DVenta dventa: detalleVentas){
                     
                 //necesitamos buscar el id del pan que se esta escogiendo
@@ -95,6 +95,7 @@
                 <td></td>
                 <td><a href="FinalizarCompra?idusuario=<%=idusuario%>">Pagar Panes</a></td>
             </tr>
+            <%}%>
             </table></p>
         </section>
         

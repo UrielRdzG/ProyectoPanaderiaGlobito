@@ -56,10 +56,10 @@
         <section class="hide">
             
         </section>
-        <section class="menu">
+        <section class="menu2">
             <a href="mostrarPanes.jsp">Mostrar todos los Panes</a>
             <a href="AgregarPan1.jsp">Agregar al carrito de compras</a>
-            <a href="CerrarSesion">Cerrar Sesion</a>
+            <a href="MostrarCarritoPanes.jsp">Mi carrito</a>
         </section>
         <footer class="footer">
             <p>Desarrollado por mi :D</p>

@@ -103,7 +103,7 @@ public class VerificarUsuario extends HttpServlet {
                 }
             }else{
                 //esta mal escrito o no existe en la bd
-                response.sendRedirect("Errores.jsp");
+                response.sendRedirect("Errores2.jsp");
             }
             
             
