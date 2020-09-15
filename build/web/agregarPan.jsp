@@ -49,7 +49,7 @@
             <form method="post" action="agregarPan">
                 Nombre del pan: <input type="text" name="nombre" onkeypress="return validarL(event)" maxlength="30" required>
                 <br><br>
-                Precio: <input type="" name="precio" onkeypress="return validarND(event)" maxlength="5" required>
+                Precio: <input type="" name="precio" onkeypress="return validarND(event)" maxlength="6" required>
                 <br><br>
                 Stock: <input type="text" name="stock" onkeypress="return validarN(event)" maxlength="3" required>
                 <br><br>

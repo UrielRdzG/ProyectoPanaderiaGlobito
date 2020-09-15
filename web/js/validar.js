@@ -30,7 +30,7 @@ function validarLN(e) {
 function validarND(e) {
 	var teclado = (document.all) ? e.KeyCode : e.which;
 	if (teclado == 8) return true;
-	var patron = /^[-+]?[0-9]+\.[0-9]+$/;
+	var patron = /^\d{0,2}(\.\d{0,2}){0,1}$/;
 	var tecla = String.fromCharCode(teclado);
 	return patron.test(tecla);
 }
