@@ -174,6 +174,48 @@ public class MVenta {
     
     }
     
+    public Vector<DVenta> consultarDetalleVenta(int id) throws ClassNotFoundException{
+        Vector<DVenta> mv=new Vector<DVenta>();
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        
+        try {
+            con=Conexion.getConnection();
+            String q="select * from DVenta where id_venta=?";
+            ps=con.prepareStatement(q);
+            ps.setInt(1, id);
+            rs=ps.executeQuery();
+            
+            while (rs.next()) {                
+                DVenta ven=new DVenta();
+                ven.setId_dventa(rs.getInt("id_dventa"));
+                ven.setId_pan(rs.getInt("id_pan"));
+                ven.setCant_dventa(rs.getInt("cant_dventa"));
+                ven.setSubtotal_dventa(rs.getFloat("subtotal_dventa"));
+                ven.setId_venta(id);
+                ven.setId_eusu(rs.getInt("id_eusu"));
+                mv.add(ven);
+                
+            }
+            
+        } catch (SQLException e) {
+            System.out.println("No encontro la tabla MVenta, no se puede mostrar la lista de ventas por mes");
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            mv=null;
+        }finally{
+            try {
+                rs.close();
+                ps.close();
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }return mv;
+    
+    }
+    
     private int ultimoCodigoInsertoVenta(Connection con){
         int codigo = 0;
         PreparedStatement ps = null;
