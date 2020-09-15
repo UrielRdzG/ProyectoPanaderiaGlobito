@@ -1,6 +1,6 @@
 <%-- 
-    Document   : detalleUsuario
-    Created on : 14/09/2020, 11:38:10 PM
+    Document   : detallePan
+    Created on : 14/09/2020, 11:44:26 PM
     Author     : uriel
 --%>
 
@@ -48,33 +48,29 @@
         
         <section class="sec-com">
             
-            <h1>Detalle del usuario</h1>
+            <h1>Detalle del pan</h1>
             
             <%
-                MUsuario usu = new MUsuario().buscarUsuario(Integer.parseInt(request.getParameter("idusu")));
+                MPan pan = new MPan().buscarPan(Integer.parseInt(request.getParameter("idpan")));
                 
                 
             %>
             <table width="100%" border="0">
                 <tr>
                     <td>Id</td>
-                    <td><input type="text" name="idusu" id="id" readonly="readonly" value="<%=usu.getId_usu()%>"></td>
+                    <td><input type="text" name="idusu" id="id" readonly="readonly" value="<%=pan.getId_pan()%>"></td>
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="text" name="nombre" id="nombre" readonly="readonly" value="<%=usu.getNom_usu()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
+                    <td><input type="text" name="nombre" id="nombre" readonly="readonly" value="<%=pan.getNom_pan()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
                 </tr>
                 <tr>
-                    <td>Apellidos:</td>
-                    <td><input type="text" name="apellido" id="apellido" readonly="readonly" value="<%=usu.getAppat_usu()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
+                    <td>Precio</td>
+                    <td><input type="text" name="apellido" id="apellido" readonly="readonly" value="<%=pan.getPre_pan()%>" onkeypress="return validarL(event)" maxlength="50" required></td>
                 </tr>
                 <tr>
-                    <td>Usuario:</td>
-                    <td><input type="text" name="user" id="user" readonly="readonly" value="<%=usu.getUser_usu()%>" onkeypress="return validarLN(event)" maxlength="20" required></td>
-                </tr>
-                <tr>
-                    <td>Contraseña</td>
-                    <td><input type="password" name="pass" id="pass" readonly="readonly" value="<%=usu.getPass_usu()%>" onkeypress="return validarLN(event)" maxlength="20" required></td>
+                    <td>Stock Actual</td>
+                    <td><input type="text" name="user" id="user" readonly="readonly" value="<%=pan.getStock_pan()%>" onkeypress="return validarLN(event)" maxlength="20" required></td>
                 </tr>
             </table>
                 

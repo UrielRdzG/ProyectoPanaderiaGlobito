@@ -48,6 +48,8 @@
         
         <section class="sec-com">
             
+            <h1>Detalle del usuario</h1>
+            
             <%
                 MUsuario usu = new MUsuario().buscarUsuario(Integer.parseInt(request.getParameter("idusu")));
                 

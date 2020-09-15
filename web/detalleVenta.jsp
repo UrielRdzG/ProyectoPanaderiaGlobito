@@ -52,7 +52,9 @@
                 <button onclick="window.location='ventasS.jsp'">Semana</button>
                 <button onclick="window.location='ventasM.jsp'">Mes</button>
             </p>
-            <br><br><br>
+            <br><br>
+            <h1>Detalle de la venta</h1>
+            <br><br>
             <table width="100%" border="0" align="center">
                 <tr>
                     <th>Id del detalle</th>
