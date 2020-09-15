@@ -62,21 +62,23 @@
                     <th colspan="2"></th>
                 </tr>
             <%
-                Vector<DVenta> vecven=new DVenta().consultarDetalleVenta(Integer.parseInt("idven"));
+                Vector<DVenta> vecven=new DVenta().consultarDetalleVenta(Integer.parseInt(request.getParameter("idven")));
                 for(DVenta mv : vecven){
-                    String direccion="detalleUsuario.jsp?idven="+mv.getId_eusu();
-                    String direccion2="detallePan.jsp?idven="+mv.getId_pan();
+                    String direccion="detalleUsuario.jsp?idusu="+mv.getId_eusu();
+                    String direccion2="detallePan.jsp?idpan="+mv.getId_pan();
             %>
                 <tr>
-                    <td><%=mv.getId_dventa()%></td>
+                    <td align="center"><%=mv.getId_dventa()%></td>
                     <td align="center"><%=mv.getId_pan()%></td>
-                    <td>$<%=mv.getCant_dventa()%></td>
-                    <td><%=mv.getSubtotal_dventa()%></td>
-                    <td><a href="<%=direccion%>">Detalle del usuario</a></td>
-                    <td><a href="<%=direccion2%>">Detalle del pan</a></td>
+                    <td align="center"><%=mv.getCant_dventa()%></td>
+                    <td align="center">$<%=mv.getSubtotal_dventa()%></td>
+                    <td align="center"><a href="<%=direccion%>">Detalle del usuario</a></td>
+                    <td align="center"><a href="<%=direccion2%>">Detalle del pan</a></td>
                 </tr>
             <%}%>
             </table>
+            <br><br><br>
+            <center><input type="button" onclick="history.back()" name="volver atrás" value="Volver"></center>
         </section>
         
     </body>

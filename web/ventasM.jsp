@@ -61,7 +61,7 @@
                     <th>Acciones</th>
                 </tr>
             <%
-                Vector<MVenta> vecven=new MVenta().consultarVentas();
+                Vector<MVenta> vecven=new MVenta().consultarVentasMes();
                 for(MVenta mv : vecven){
                     String direccion="detalleVenta.jsp?idven="+mv.getId_venta();
             %>
@@ -69,7 +69,7 @@
                     <td><%=mv.getId_venta()%></td>
                     <td align="center"><%=mv.getFecha_venta()%></td>
                     <td>$<%=mv.getTotal_venta()%></td>
-                    <td><a href="<%=direccion%>">Editar</a></a></td>
+                    <td><a href="<%=direccion%>">Mas info.</a></a></td>
                 </tr>
             <%}%>
             </table>

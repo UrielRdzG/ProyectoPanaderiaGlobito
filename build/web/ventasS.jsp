@@ -61,7 +61,7 @@
                     <th>Acciones</th>
                 </tr>
             <%
-                Vector<MVenta> vecven=new MVenta().consultarVentas();
+                Vector<MVenta> vecven=new MVenta().consultarVentasSemana();
                 for(MVenta mv : vecven){
                     String direccion="detalleVenta.jsp?idven="+mv.getId_venta();
             %>
