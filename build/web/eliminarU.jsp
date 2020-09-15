@@ -38,10 +38,10 @@
                 <img src="./img/logo.png" alt="logo">
             </div>
             <nav class="menu">
-                <a href="index.html">Principal</a>
+                <a href="admin.jsp">Principal</a>
                 <a href="usuariosA.jsp">Usuarios</a>
                 <a href="panesA.jsp">Panes</a>
-                <a href="ventas.jasp">Ventas</a>
+                <a href="ventas.jsp">Ventas</a>
                 <a href="CerrarSesion.jsp">Cerrar Sesion</a>
             </nav>
         </header>
